@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
+import HelloWorld from "./components/HelloWorld";
+import RegisterPage from "./components/RegisterPage/RegisterPage";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Web Final Project ! Team 8
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <div className="container" id={"root"}>
+          <Routes>
+              <Route path="/">
+                  <Route path="home"
+                         element={<HomePage/>}/>
+                  <Route path="register"
+                         element={<RegisterPage/>}/>
+                  <Route path="hello"
+                         element={<HelloWorld/>}/>
+              </Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
   );
 }
-
 export default App;
