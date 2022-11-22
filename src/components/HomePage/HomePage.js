@@ -32,7 +32,7 @@ const HomePage = () => {
       <div className="mt-5 p-5">
         <i className="fas fa-search fa-2x" style={{ color: "lightslategray" }}></i>
         <input
-          className="wd-searchBar rounded-pill border border-5 border-secondary border-opacity-25 "
+          className="wd-H-searchBar d-flex justify-content-center rounded-pill border border-5 border-secondary border-opacity-25 "
           placeholder="Search for Your Professor........"
         />
         <a className="ms-2 fs-6" style={{ color: "lightslategray" }} href="#">

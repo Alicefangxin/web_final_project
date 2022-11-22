@@ -1,11 +1,6 @@
-
-
-.wd-searchBar{
-    align-items: center;
-    justify-content: center;
-    height: 50px;
+.wd-H-searchBar{
+    height: 60px;
     width: 800px;
-    display: flex;
-
 }
+
 
