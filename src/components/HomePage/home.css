@@ -1,45 +1,4 @@
-.wd-loginSignup {
-    height: 23vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: end;
-}
 
-.wd-bgColor {
-    background-color: lightslategray;
-    margin-left: 1000px;
-    margin-right: 5px;
-}
-
-.wd-lSContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 10%;
-    min-width: 250px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-
-}
-
-.wd-input {
-    height: 10px;
-    padding: 10px;
-}
-
-.wd-round-pill {
-    background-color: #ddd;
-    border: none;
-    color: black;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 16px;
-
-}
 
 .wd-searchBar{
     align-items: center;
@@ -47,18 +6,6 @@
     height: 50px;
     width: 800px;
     display: flex;
-    border-radius: 20px;
-    margin-left: 20px;
-    margin-bottom: 5px;
-}
-
-.wd-switchToMajor {
-    margin-left: 23px;
-    font-size: small;
-    color: lightslategray;
-}
-
-.wd-searchMain {
-    margin-top: 50px;
 
 }
+

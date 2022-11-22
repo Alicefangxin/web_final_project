@@ -5,37 +5,37 @@ import "./home.css";
 const HomePage = () => {
   return (
     <>
-      <div>
+      <div className="pt-2">
         <h1>Northeastern University - rate my professor</h1>
       </div>
-      <div className="wd-loginSignup wd-bgColor">
-        <div className="wd-lSContainer">
+      <div className="d-flex flex-row-reverse pt-1">
+        <div className="mb-2">
           <h4>
-            <button className="wd-round-pill">Log In</button> OR{" "}
-            <button className="wd-round-pill">Sign Up</button>
+            <button className="rounded-pill fs-6 fw-bold p-2 border-0 me-2" style={{ color: "white", backgroundColor: "lightslategray" }}>Log  In</button>
+            <button className="rounded-pill fs-6 fw-bold p-2 ms-2 border-0" style={{ color: "white", backgroundColor: "lightslategray" }} >Sign Up</button>
           </h4>
           <input
             type="text"
             placeholder="username"
             id="username"
-            className="wd-input"
+            className="d-flex justify-content-end mb-2"
           />
           <input
             type="password"
             placeholder="password"
             id="password"
-            className="wd-input"
+            className="d-flex justify-content-end"
           />
         </div>
       </div>
 
-      <div className="wd-searchMain">
-        <i className="fas fa-cog fa-2x" style={{ color: "dodgerblue" }}></i>
+      <div className="mt-5 p-5">
+        <i className="fas fa-search fa-2x" style={{ color: "lightslategray" }}></i>
         <input
-          className="wd-searchBar"
+          className="wd-searchBar rounded-pill border border-5 border-secondary border-opacity-25 "
           placeholder="Search for Your Professor........"
         />
-        <a className="wd-switchToMajor" href="#">
+        <a className="ms-2 fs-6" style={{ color: "lightslategray" }} href="#">
           {" "}
           I want to find a professor by major{" "}
         </a>
