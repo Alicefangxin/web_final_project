@@ -1,0 +1,21 @@
+.wd-nudge-up {
+    bottom: 100px;
+    left: 25px;
+}
+.wd-search-icon {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 60px;
+    left: 105px;
+    width: fit-content;
+    z-index: 2;
+}
+.wd-bg-rating {
+    background-color: lightgoldenrodyellow;
+    padding: 21px 24px 0px;
+    width: 90px;
+    color: black;
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+}
