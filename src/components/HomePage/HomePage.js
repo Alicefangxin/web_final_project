@@ -37,7 +37,7 @@ const HomePage = () => {
         />
         <a className="ms-2 fs-6" style={{ color: "lightslategray" }} href="#">
           {" "}
-          I want to find a professor by major{" "}
+          I want to find a professor by campus{" "}
         </a>
       </div>
     </>
