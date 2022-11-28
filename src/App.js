@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import usersReducer from "./users/users-reducer";
 import Register from "./components/RegisterAndLogin/register";
 import Login from "./components/RegisterAndLogin/login";
+import LoginContent from "./components/LoginContent/LoginContent";
 
 const store = configureStore({
   reducer: { profile: profileReducer, users: usersReducer },
@@ -24,6 +25,7 @@ function App() {
             <Route>
               <Route index element={<HomePage />} />
               <Route path="/home" element={<HomePage />} />
+              <Route path="/homeLogin" element={<LoginContent/>} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<ProfilePage />} />
