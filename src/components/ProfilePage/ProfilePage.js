@@ -36,16 +36,16 @@ const ProfilePage = () => {
                             <br/><br/>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="/profile/home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="false">Account Settings</a>
+                                    <a class="nav-link" id="account-tab" data-toggle="tab" href="/profile/account" role="tab" aria-controls="account" aria-selected="false">Account Settings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="ratings-tab" data-toggle="tab" href="#ratings" role="tab" aria-controls="ratings" aria-selected="false">Your Ratings</a>
+                                    <a class="nav-link" id="ratings-tab" data-toggle="tab" href="/profile/ratings" role="tab" aria-controls="ratings" aria-selected="false">Your Ratings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="professors-tab" data-toggle="tab" href="#professors" role="tab" aria-controls="professors" aria-selected="false">Saved Professors</a>
+                                    <a class="nav-link" id="professors-tab" data-toggle="tab" href="/profile/professors" role="tab" aria-controls="professors" aria-selected="false">Saved Professors</a>
                                 </li>
                             </ul>
                         </div>
@@ -94,7 +94,7 @@ const ProfilePage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+                            <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
                                 <div class="col-md-12">
                                     <button type="button" class="btn btn-light float-end fw-bold rouded-pill" onClick={routeChange2}>Edit Account</button>
                                 </div>
@@ -115,8 +115,8 @@ const ProfilePage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab"><DetailComponent/></div>
-                            <div class="tab-pane fade" id="professors" role="tabpanel" aria-labelledby="professors-tab"><ResultList/></div>
+                            <div class="tab-pane fade show active" id="ratings" role="tabpanel" aria-labelledby="ratings-tab"><DetailComponent/></div>
+                            <div class="tab-pane fade show active" id="professors" role="tabpanel" aria-labelledby="professors-tab"><ResultList/></div>
                         </div>
                     </div>
                 </div>
