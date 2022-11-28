@@ -44,7 +44,7 @@
     align-items: center;
 }
 
-.d-actions button {
+.d-actions-button {
     cursor: pointer;
     font: inherit;
     color: white;
@@ -55,7 +55,7 @@
     padding: 0.5rem 2.5rem;
 }
 
-.d-actions button:hover {
+.d-actions-button:hover {
     background-color: #076063;
     border-color: #076063;
 }
@@ -71,5 +71,5 @@
 
 .d-actions-toggle:hover {
     background-color: transparent;
-    color: #9ce3ea;
+    color: #393b3b;
 }

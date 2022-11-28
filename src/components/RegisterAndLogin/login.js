@@ -39,13 +39,13 @@ const Login = () => {
             />
           </div>
           <div className="d-actions">
-            <button onClick={handleLoginBtn} className="btn btn-primary w-100">
+            <button onClick={handleLoginBtn} className="d-actions-button w-100">
               Login
             </button>
             <Link to="/register">
-              <botton type="button" className="d-actions-toggle">
+              <button type="button" className="d-actions-toggle">
                 Create a new account
-              </botton>
+              </button>
             </Link>
           </div>
         </form>
