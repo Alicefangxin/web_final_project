@@ -6,6 +6,7 @@ import HelloWorld from "./components/HelloWorld";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import SearchComponent from "./components/SearchPage/index.js";
 import DetailComponent from "./components/DetailPage/index.js";
+import AddRating from "./components/DetailPage/add-rating";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
                          element={<SearchComponent/>}/>
                   <Route path="detail"
                          element={<DetailComponent/>}/>
+                  <Route path="addRating"
+                         element={<AddRating/>}/>
                   <Route path="hello"
                          element={<HelloWorld/>}/>
               </Route>
