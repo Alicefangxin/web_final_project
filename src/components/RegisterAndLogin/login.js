@@ -64,7 +64,7 @@ const Login = () => {
             </button>
             <Link to="/register">
               <button type="button" className="d-actions-toggle">
-                Create a new account
+                New? Create a new account here
               </button>
             </Link>
           </div>
