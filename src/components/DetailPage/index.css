@@ -1,0 +1,42 @@
+.wd-review{
+    font-family: "Helvetica Neue";
+}
+.wd-bg-quality {
+    background-color: lightgreen;
+    padding: 21px 24px 0px;
+    width: 90px;
+    color: black;
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    margin-bottom: 48px;
+}
+.wd-quality-font {
+    font-weight: 600;
+    line-height: 14px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    vertical-align: baseline;
+}
+.wd-bg-difficulty {
+    background-color: lightgray;
+    background-size: 50px 50px;
+    padding: 10px;
+    width: 90px;
+    color: black;
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    margin-bottom: 48px;
+}
+.wd-difficulty-font {
+    font-weight: 600;
+    line-height: 14px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    vertical-align: baseline;
+}
+.wd-bg-title {
+    background-color: lightgreen;
+}
+.wd-margin-left {
+    margin-left: 40px;
+}

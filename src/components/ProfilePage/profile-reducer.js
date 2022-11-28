@@ -10,6 +10,9 @@ const profileSlice = createSlice({
             state.lastName = action.payload.lastName.lastName;
             state.school = action.payload.school.school;
             state.expectedYearOfGraduation = action.payload.expectedYearOfGraduation.expectedYearOfGraduation;
+            state.email = action.payload.email.email;
+            state.password = action.payload.password.password;
+
         }
     }
 });

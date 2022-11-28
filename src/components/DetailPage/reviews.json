@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 123,
+    "QUALITY": "5.0",
+    "DIFFICULTY": "3.0",
+    "course": "CS5500",
+    "WouldTakeAgain": "Yes",
+    "review": "I would recommend to take this course.",
+    "topic": "AWESOME",
+    "date": "Nov 24th, 2022"
+  },
+  {
+    "_id": 234,
+    "QUALITY": "5.0",
+    "DIFFICULTY": "4.0",
+    "course": "CS5610",
+    "WouldTakeAgain": "Yes",
+    "review": "You can learn many technologies in this class. Jose is a great lecturer. He is not too strict with grading. He gives significant amount of assignments. You can use the project and assignments in this class in your portfolio.\n",
+    "topic": "AWESOME",
+    "date": "Jul 9th, 2020"
+  }
+]

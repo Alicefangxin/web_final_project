@@ -1,0 +1,30 @@
+[
+  {
+    "_id": 123,
+    "name": "Zhuoqun Cheng",
+    "department": "Computer Science",
+    "rating": "3.9",
+    "numOfRatings": "4",
+    "difficultyLevel": "3.9",
+    "againPct": "67%",
+    "numOfAwesome": "2",
+    "numOfGreat": "0",
+    "numOfGood": "1",
+    "numOfOK": "1",
+    "numOfAwful": "0"
+  },
+  {
+    "_id": 234,
+    "name": "Jose Annunziato",
+    "department": "Computer Science",
+    "rating": "4.6",
+    "numOfRatings": "25",
+    "difficultyLevel": "3.1",
+    "againPct": "87%",
+    "numOfAwesome": "20",
+    "numOfGreat": "2",
+    "numOfGood": "0",
+    "numOfOK": "1",
+    "numOfAwful": "2"
+  }
+]
