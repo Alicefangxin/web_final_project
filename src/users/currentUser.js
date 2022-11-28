@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { profileThunk } from "./users-thunks";
 import { useDispatch } from "react-redux";
