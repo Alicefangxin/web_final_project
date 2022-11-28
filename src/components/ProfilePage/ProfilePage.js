@@ -2,8 +2,8 @@ import "./profilePage.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import 'bootstrap';
-import ReviewList from "../DetailPage/review-list";
+import ResultList from "../SearchPage/result-list.js";
+import DetailComponent from "../DetailPage/index.js";
 
 const ProfilePage = () => {
     const profile = useSelector( state => state.profile );
@@ -52,13 +52,12 @@ const ProfilePage = () => {
                     </div>
     
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                
+                    <div class="row">
+                        <div class="col-md-3">
                     </div>
                     <div class="col-md-7">
                         <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="col-md-12">
                                     <button type="button" class="btn btn-light float-end fw-bold rouded-pill" onClick={routeChange}>Edit Profile</button>
                                 </div>
@@ -66,7 +65,7 @@ const ProfilePage = () => {
                                     <div class="col-md-6">
                                         <label>First Name</label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <p>{profile.firstName}</p>
                                     </div>
                                 </div>
@@ -95,7 +94,7 @@ const ProfilePage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+                            <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
                                 <div class="col-md-12">
                                     <button type="button" class="btn btn-light float-end fw-bold rouded-pill" onClick={routeChange2}>Edit Account</button>
                                 </div>
@@ -116,8 +115,8 @@ const ProfilePage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab"><ReviewList/></div>
-                            <div class="tab-pane fade" id="professors" role="tabpanel" aria-labelledby="professors-tab">Saved Professors</div>
+                            <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab"><DetailComponent/></div>
+                            <div class="tab-pane fade" id="professors" role="tabpanel" aria-labelledby="professors-tab"><ResultList/></div>
                         </div>
                     </div>
                 </div>
