@@ -5,7 +5,7 @@ import {
   login,
   logout,
   profile,
-} from "./users-service.js";
+} from "./users-service";
 
 export const findAllUsersThunk = createAsyncThunk(
   "findAllUsers",
