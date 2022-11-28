@@ -109,9 +109,11 @@ const ProfilePage = () => {
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Password</label>
+                                        
                                     </div>
                                     <div class="col-md-6">
                                         <p>{profile.password}</p>
+
                                     </div>
                                 </div>
                             </div>
