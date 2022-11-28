@@ -2,7 +2,7 @@
     height: 23vh;
     display: flex;
     align-items: flex-end;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .wd-bgColor {
@@ -41,7 +41,7 @@
 
 }
 
-.wd-searchBar{
+.wd-searchBar {
     align-items: center;
     justify-content: center;
     height: 50px;

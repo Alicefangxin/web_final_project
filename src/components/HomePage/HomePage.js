@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 const HomePage = () => {
@@ -11,21 +12,13 @@ const HomePage = () => {
       <div className="wd-loginSignup wd-bgColor">
         <div className="wd-lSContainer">
           <h4>
-            <button className="wd-round-pill">Log In</button> OR{" "}
-            <button className="wd-round-pill">Sign Up</button>
+            <Link to="/login">
+              <button className="wd-round-pill">Log In</button>
+            </Link>
+            <Link to="/register">
+              <button className="wd-round-pill">Register</button>
+            </Link>
           </h4>
-          <input
-            type="text"
-            placeholder="username"
-            id="username"
-            className="wd-input"
-          />
-          <input
-            type="password"
-            placeholder="password"
-            id="password"
-            className="wd-input"
-          />
         </div>
       </div>
 
