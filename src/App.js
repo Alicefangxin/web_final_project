@@ -6,7 +6,8 @@ import HelloWorld from "./components/HelloWorld";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import profileReducer from "./components/ProfilePage/profile-reducer";
-import EditProfileComponent from "./components/edit-profile";
+import EditProfile from "./components/edit-profile";
+import EditProfileAccount from "./components/edit-profile-account";
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
 import SearchComponent from "./components/SearchPage/index.js";
@@ -29,7 +30,8 @@ function App() {
                             element={<RegisterPage/>}/>
                      <Route path="profile"
                             element={<ProfilePage/>}/>
-                     <Route path="profile/edit-profile" element={<EditProfileComponent/>}/>
+                     <Route path="profile/edit-profile" element={<EditProfile/>}/>
+                     <Route path="profile/edit-profile-account" element={<EditProfileAccount/>}/>
                      <Route path="search"
                             element={<SearchComponent/>}/>
                      <Route path="detail"

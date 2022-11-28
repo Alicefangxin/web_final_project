@@ -34,7 +34,6 @@ const EditProfile = () => {
                             onClick={() => profileSaveHandler(firstName, lastName, school, expectedYearOfGraduation)}>
                         Save</button>
                 </div>
-                <img className="mt-3" width="100%" alt="" src={`/images/${profile.bannerPicture}`}/>
             </div>
             <div className="mt-3 form-group">
                 <label htmlFor="inputFirstName">First Name</label><br/>
@@ -45,7 +44,6 @@ const EditProfile = () => {
                 <input type="text" id="inputLastName" className="form-control"
                         onChange={(e)=>{setLastName({lastName: e.target.value})}}
                         value={lastName.lastName}/><br/>
-
                 <label htmlFor="inputSchool">School</label><br/>
                 <textarea type="text" className="form-control"
                     onChange={(e)=>{setSchool({bio: e.target.value})}}
@@ -58,5 +56,4 @@ const EditProfile = () => {
         </>
     )
 }
-
 export default EditProfile;
