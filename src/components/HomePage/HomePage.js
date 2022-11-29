@@ -27,15 +27,13 @@ const HomePage = () => {
       </div>
 
       <div className="mt-5 p-5">
-        <i className="fas fa-search fa-2x d-home-icon-color"></i>
-        <input
-          className="wd-H-searchBar d-flex justify-content-center rounded-pill border border-5 border-secondary border-opacity-25 "
-          placeholder="Search for Your Professor........"
-        />
-        <a className="ms-2 fs-6 d-home-icon-color" href="#">
-          {" "}
-          I want to find a professor by campus{" "}
-        </a>
+          <div className="input-group mb-3">
+              <input type="text" aria-describedby="button-addon2"
+                     className="form-control wd-H-searchBar d-flex justify-content-center rounded-pill border border-5 border-secondary border-opacity-25"
+                     placeholder="Search for Your Professor........"/>
+              <button className="ms-3 btn btn-outline-secondary rounded-pill border border-5 border-secondary border-opacity-25"
+                      type="button" id="button-addon2">Confirm</button>
+          </div>
       </div>
     </>
   );

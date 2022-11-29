@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, {useState} from "react";
+import ResultList from "../SearchPage/result-list";
+import DetailComponent from "../DetailPage";
+
 
 const LoginContent = () => {
   return (
@@ -26,7 +29,7 @@ const LoginContent = () => {
             </button>
             <ul className="dropdown-menu">
               <li>
-                <a className="dropdown-item" href="https://www.google.com/">
+                <a className="dropdown-item" href="#">
                   Profile
                 </a>
               </li>
@@ -44,20 +47,19 @@ const LoginContent = () => {
           </div>
         </div>
       </div>
-
       <div className="mt-5 p-5">
-        <i
-          className="fas fa-search fa-2x"
-          style={{ color: "lightslategray" }}
-        ></i>
-        <input
-          className="wd-H-searchBar d-flex justify-content-center rounded-pill border border-5 border-secondary border-opacity-25 "
-          placeholder="Search for Your Professor........"
-        />
-        <a className="ms-2 fs-6" style={{ color: "lightslategray" }} href="#">
-          {" "}
-          I want to find a professor by campus{" "}
-        </a>
+            <div className="input-group mb-3">
+                <input type="text" aria-describedby="button-addon2"
+                       className="form-control wd-H-searchBar d-flex justify-content-center rounded-pill border border-5 border-secondary border-opacity-25"
+                       placeholder="Search for Your Professor........"/>
+                <button className="ms-3 btn btn-outline-secondary rounded-pill border border-5 border-secondary border-opacity-25"
+                        type="button" id="button-addon2">Confirm</button>
+            </div>
+      </div>
+
+      <div className="p-3 mb-5 bg-info bg-opacity-10 border border-success border-start-0 border-end-0 rounded-end">
+          <div className="tab-pane fade show active" id="professors" role="tabpanel" aria-labelledby="professors-tab">
+              <ResultList/></div>
       </div>
 
       <div className="mt-6 p-3 bg-white bg-opacity-10 border border-dark border-bottom-0 border-end-0 border-start-0">
@@ -96,6 +98,13 @@ const LoginContent = () => {
           </a>
         </div>
       </div>
+
+     <div className="p-3 mb-5 bg-info bg-opacity-10 border border-success border-start-0 border-end-0 rounded-end">
+         <div className="tab-pane fade show active" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">
+             <DetailComponent/></div>
+     </div>
+
+     <div className="fixed-bottom bg-success fw-bold bg-opacity-25">R8MyPro..</div>
     </>
   );
 };
