@@ -1,6 +1,26 @@
-.wd-H-searchBar{
+.wd-H-searchBar {
     height: 60px;
     width: 800px;
 }
 
+.d-actions-button {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 16px;
+    background-color: #04958c;
+    border: 10px solid #04958c;
+    border-radius: 4px;
+    margin: 15px;
+}
 
+.d-actions-button:hover {
+    background-color: #076063;
+    border-color: #076063;
+}
+
+.d-home-icon-color {
+    color: lightslategray;
+}
