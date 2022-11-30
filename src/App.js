@@ -1,13 +1,14 @@
 import "./App.css";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+
 import HomePage from "./components/HomePage/HomePage";
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import profileReducer from "./components/ProfilePage/profile-reducer";
 import profReducer from "./professors/professors-reducer"
 import EditProfileComponent from "./components/edit-profile";
-import {configureStore} from "@reduxjs/toolkit";
-import {Provider} from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
 import usersReducer from "./users/users-reducer";
 import Register from "./components/RegisterAndLogin/register";
 import Login from "./components/RegisterAndLogin/login";
