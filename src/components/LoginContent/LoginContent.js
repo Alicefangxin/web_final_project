@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState} from "react";
-import ResultList from "../SearchPage/result-list";
 import DetailComponent from "../DetailPage";
+import ProfList from "../../professors";
 
 
 const LoginContent = () => {
@@ -59,7 +59,8 @@ const LoginContent = () => {
 
       <div className="p-3 mb-5 bg-info bg-opacity-10 border border-success border-start-0 border-end-0 rounded-end">
           <div className="tab-pane fade show active" id="professors" role="tabpanel" aria-labelledby="professors-tab">
-              <ResultList/></div>
+              <ProfList/>
+          </div>
       </div>
 
       <div className="mt-6 p-3 bg-white bg-opacity-10 border border-dark border-bottom-0 border-end-0 border-start-0">
