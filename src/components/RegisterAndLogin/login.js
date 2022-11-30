@@ -1,7 +1,7 @@
 import "./registerandlogin.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginThunk } from "../../users/users-thunks";
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +9,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const { currentUser } = useSelector((state) => state.users);
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const handlePasswordChange = (e) => {
     setPasswordInput(e.target.value);
@@ -20,14 +22,33 @@ const Login = () => {
   const handleLoginBtn = () => {
     setError(null);
     const loginUser = { username, passwordInput };
-    dispatch(loginThunk(loginUser));
+    console.log("buttonhandler", loginUser);
+    dispatch(loginThunk(loginUser)).then((res) => {
+      console.log(res);
+      if (res.error) {
+        setError(
+          "Login failed! Either username is not found or the password is incorrect."
+        );
+      } else {
+        localStorage.setItem("username", username);
+        navigate("/profile");
+      }
+    });
   };
+  useEffect(() => {
+    const username = localStorage.getItem("username");
+    if (currentUser || username) {
+      navigate("/profile");
+    }
+  }, [currentUser, navigate]);
+
   return (
     <>
+      {/* <UserList /> */}
       <div className=" row-10 col-12 d-auth">
-        <h1>Login</h1>
+        {!currentUser && <h1>Login</h1>}
         {error && <div className="alert alert-danger">{error}</div>}
-        <form>
+        {!currentUser && (
           <div className="d-control mt-4">
             {/* <label for="username">Username</label> */}
             <input
@@ -58,17 +79,19 @@ const Login = () => {
               </div>
             </div>
           </div>
+        )}
+        {!currentUser && (
           <div className="d-actions">
             <button onClick={handleLoginBtn} className="d-actions-button w-100">
               Login
             </button>
-            <Link to="/register">
+            <Link to="/registerusertype">
               <button type="button" className="d-actions-toggle">
                 Create a new account
               </button>
             </Link>
           </div>
-        </form>
+        )}
         {currentUser && <h2>Welcome {currentUser.username}</h2>}
       </div>
     </>
