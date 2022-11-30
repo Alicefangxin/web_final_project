@@ -20,10 +20,14 @@ const Register = () => {
     }
     setError(null);
     const newUser = { username, password };
-    dispatch(registerThunk(newUser));
-    if (currentUser) {
-      navigate("/login");
-    }
+    dispatch(registerThunk(newUser)).then((res) => {
+      console.log(res);
+      if (res.error) {
+        setError("Register failed! Username already exists!");
+      } else {
+        navigate("/login");
+      }
+    });
   };
   const togglePasswordTypeHandler = (lastState) => {
     setShowPassword(!lastState);
