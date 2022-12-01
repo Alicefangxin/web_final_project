@@ -13,6 +13,7 @@ import usersReducer from "./users/users-reducer";
 import Register from "./components/RegisterAndLogin/register";
 import Login from "./components/RegisterAndLogin/login";
 import LoginContent from "./components/LoginContent/LoginContent";
+import ProtectedRoute from "./components/ProtectedRoute";
 const store = configureStore({
   reducer: {
     profile: profileReducer,
@@ -32,10 +33,21 @@ function App() {
               <Route path="/home" element={<LoginContent />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/profile" element={<ProfilePage />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfilePage />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/profile/edit-profile"
-                element={<EditProfileComponent />}
+                element={
+                  <ProtectedRoute>
+                    <EditProfileComponent />
+                  </ProtectedRoute>
+                }
               />
               <Route path="/hello" element={<HelloWorld />} />
             </Route>
