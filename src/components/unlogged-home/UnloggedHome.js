@@ -46,17 +46,17 @@ const UnloggedHome = () => {
                         className="rounded-5 me-1"
                         src="https://pbs.twimg.com/media/ExQ97nJXMAM2AJH?format=jpg&name=medium"
                         width="350"
-                    />
+                     alt="none"/>
                     <img
                         className="rounded-5 ms-1"
                         src="https://i0.wp.com/news.northeastern.edu/wp-content/uploads/2021/10/husky-puppies-scaled.jpg?fit=2560%2C1704&ssl=1"
                         width="350"
-                    />
+                        alt="none"/>
                     <img
                         className="rounded-5 ms-2"
                         src="https://pbs.twimg.com/media/ExQ97a9WUAQNm3_?format=jpg&name=medium"
                         width="350"
-                    />
+                        alt="none"/>
                 </div>
             </div>
             <div className="pt-2">
