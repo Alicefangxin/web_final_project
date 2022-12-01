@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import UnloggedHome from "./components/unlogged-ome/UnloggedHome";
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import profileReducer from "./components/ProfilePage/profile-reducer";

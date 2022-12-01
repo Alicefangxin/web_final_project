@@ -1,4 +1,5 @@
 import React from "react";
+import DetailComponent from "../DetailPage/index.js";
 const ResultItem = (
     {
         info = {
@@ -32,7 +33,7 @@ const ResultItem = (
                     </div>
                 </div>
                 <div className="col-2">
-                    <button className="btn btn-dark float-end">See Rating</button>
+                    <button onClick={()=><DetailComponent/>} className="btn btn-dark float-end">See Rating</button>
                 </div>
             </div>
         </li>

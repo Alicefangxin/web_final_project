@@ -1,3 +1,17 @@
+.wd-profname {
+    font-family: "Helvetica Neue";
+    font-size: 40px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+.wd-data {
+    font-family: "Helvetica Neue";
+    font-size: 35px;
+    font-weight: bolder;
+}
+.wd-margin-center {
+    margin-left: 40%;
+}
 .wd-review{
     font-family: "Helvetica Neue";
 }
@@ -8,7 +22,7 @@
     color: black;
     font-family: "Helvetica Neue";
     font-size: 14px;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
 }
 .wd-quality-font {
     font-weight: 600;
@@ -25,7 +39,6 @@
     color: black;
     font-family: "Helvetica Neue";
     font-size: 14px;
-    margin-bottom: 48px;
 }
 .wd-difficulty-font {
     font-weight: 600;
