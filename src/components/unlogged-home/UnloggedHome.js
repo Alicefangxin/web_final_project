@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import "./home.css";
 import ProfList from "../../professors";
+import Footer from "../footer/Footer";
 
 const UnloggedHome = () => {
     const {currentUser} = useSelector((state) => state.users);
@@ -39,7 +40,7 @@ const UnloggedHome = () => {
             </div>
             <div className="mt-6 p-3 bg-white bg-opacity-10 border border-dark border-bottom-0 border-end-0 border-start-0">
                 <div className="pt-2">
-                    <h2>Welcome Back!</h2>
+                    <h2>Welcome to R8MyProfessor, Huskies!</h2>
                 </div>
                 <div className="mt-1">
                     <img
@@ -66,6 +67,7 @@ const UnloggedHome = () => {
                 <div className="tab-pane fade show active" id="professors" role="tabpanel" aria-labelledby="professors-tab">
                     <ProfList/></div>
             </div>
+            <Footer/>
         </>
     );
 };
