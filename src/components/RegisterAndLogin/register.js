@@ -3,27 +3,59 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "../../users/users-thunks";
 import { Link, useNavigate } from "react-router-dom";
+import { Dropdown } from "semantic-ui-react";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("");
   const [validatePassword, setValidatePassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const { currentUser } = useSelector((state) => state.users);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userTypeOptions = [
+    {
+      key: "Student",
+      text: "Student",
+      value: "STUDENT",
+      image: { avatar: true, src: "/images/student.png" },
+    },
+    {
+      key: "Professor",
+      text: "Professor",
+      value: "PROFESSOR",
+      image: { avatar: true, src: "/images/professor.png" },
+    },
+    {
+      key: "Admin",
+      text: "Admin",
+      value: "ADMIN",
+      image: { avatar: true, src: "/images/admin.png" },
+    },
+  ];
+
   const handleRegisterBtn = () => {
     if (password !== validatePassword) {
-      setError("Passwords must match");
+      setError("Passwords must match!");
+      return;
+    } else if (
+      username === "" ||
+      password === "" ||
+      validatePassword === "" ||
+      userType === ""
+    ) {
+      setError("Error! Fields below must be filled!");
       return;
     }
     setError(null);
-    const newUser = { username, password };
+    console.log("userType is: ", userType);
+    const newUser = { username, password, userType };
     dispatch(registerThunk(newUser)).then((res) => {
       console.log(res);
       if (res.error) {
-        setError("Register failed! Username already exists!");
+        setError("Registration failed! Username already exists!");
       } else {
         navigate("/login");
       }
@@ -45,12 +77,27 @@ const Register = () => {
         <h1>Register</h1>
         {error && <div className="alert alert-danger">{error}</div>}
         <div className="d-control">
+          <label htmlFor="userType">User Type</label>
+          <Dropdown
+            placeholder="Please Select Your User Type*"
+            fluid
+            required
+            selection
+            clearable
+            options={userTypeOptions}
+            value={userType}
+            id="userType"
+            onChange={(e, item) => {
+              setUserType(item.value);
+            }}
+          ></Dropdown>
           <label htmlFor="username">Username</label>
           <input
             className="form-control mb-2 d-control-input"
             value={username}
             placeholder="Please input a unique username"
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <label htmlFor="password">Password</label>
           <div className="input-group d-control mt-2">
@@ -61,6 +108,7 @@ const Register = () => {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <div
               className="btn bg-white"
@@ -83,6 +131,7 @@ const Register = () => {
               placeholder="Retype password"
               value={validatePassword}
               onChange={(e) => setValidatePassword(e.target.value)}
+              required
             />
             <div
               className="btn bg-white"

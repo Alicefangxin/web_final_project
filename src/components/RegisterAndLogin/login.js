@@ -85,7 +85,7 @@ const Login = () => {
             <button onClick={handleLoginBtn} className="d-actions-button w-100">
               Login
             </button>
-            <Link to="/registerusertype">
+            <Link to="/register">
               <button type="button" className="d-actions-toggle">
                 Create a new account
               </button>
