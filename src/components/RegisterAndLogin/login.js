@@ -19,10 +19,10 @@ const Login = () => {
   const togglePasswordTypeHandler = (lastState) => {
     setShowPassword(!lastState);
   };
-  const handleLoginBtn = () => {
+  const LoginBtnHandler = () => {
     setError(null);
     const loginUser = { username, passwordInput };
-    console.log("buttonhandler", loginUser);
+    console.log("LoginBtnHandler", loginUser);
     dispatch(loginThunk(loginUser)).then((res) => {
       console.log(res);
       if (res.error) {
@@ -82,7 +82,10 @@ const Login = () => {
         )}
         {!currentUser && (
           <div className="d-actions">
-            <button onClick={handleLoginBtn} className="d-actions-button w-100">
+            <button
+              onClick={LoginBtnHandler}
+              className="d-actions-button w-100"
+            >
               Login
             </button>
             <Link to="/register">
