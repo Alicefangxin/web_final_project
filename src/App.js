@@ -15,6 +15,7 @@ import LoggedHome from "./components/logged-home/LoggedHome";
 import SearchComponent from "./components/SearchPage";
 import searchedReducer from "./components/SearchPage/searched-reducer";
 import ProtectedRoute from "./components/ProtectedRoute";
+import UnloggedHome from "./components/unlogged-home/UnloggedHome";
 
 
 const store = configureStore({

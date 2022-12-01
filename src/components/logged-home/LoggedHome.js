@@ -3,6 +3,7 @@
 import React from "react";
 import DetailComponent from "../DetailPage";
 import ProfList from "../../professors";
+import {Link} from "react-router-dom";
 
 const LoggedHome = () => {
     return (
