@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import DetailComponent from "../DetailPage";
 import ProfList from "../../professors";
+import {Link} from "react-router-dom";
 
 
 const LoggedHome = () => {
@@ -47,21 +48,19 @@ const LoggedHome = () => {
             </div>
             <div className="mt-5 p-5">
                 <div className="input-group mb-3">
-                    <input type="text" aria-describedby="button-addon2"
-                           className="form-control wd-H-searchBar d-flex justify-content-center rounded-pill border border-5 border-secondary border-opacity-25"
-                           placeholder="Search Professors by Name ......"/>
-                    <button className="ms-3 btn btn-outline-secondary rounded-pill border border-5 border-secondary border-opacity-25"
-                            type="button" id="button-addon2">Confirm</button>
+                    <Link to="/search">
+                        <button
+                            className="ms-3 btn btn-outline-secondary rounded-pill border border-5 border-secondary border-opacity-25"
+                            type="button" id="button-addon2">Search
+                        </button>
+                    </Link>
                 </div>
             </div>
 
-            <div className="p-3 mb-5 bg-info bg-opacity-10 border border-success border-start-0 border-end-0 rounded-end">
-                <div className="tab-pane fade show active" id="professors" role="tabpanel" aria-labelledby="professors-tab">
-                    <ProfList/></div>
-            </div>
-
             <div className="mt-6 p-3 bg-white bg-opacity-10 border border-dark border-bottom-0 border-end-0 border-start-0">
-                <b className="mt-6 p-3 pt-5">Welcome Back !</b>
+                <div className="pt-2">
+                    <h2>Welcome Back!</h2>
+                </div>
                 <div className="mt-1">
                     <img
                         className="rounded-5 me-1"
@@ -79,23 +78,18 @@ const LoggedHome = () => {
                         width="350"
                     />
                 </div>
-                <div className="mt-3 text-center">
-                    <a href="#">
-                        {" "}
-                        <button
-                            type="button"
-                            className="rounded-4 btn align-items-end"
-                            style={{
-                                color: "white",
-                                backgroundColor: "lightslategray",
-                                border: "none",
-                            }}
-                        >
-                            My Ratings/My Profile/Admin
-                        </button>
-                    </a>
-                </div>
             </div>
+
+            <div className="pt-2">
+                <h2>My Professors</h2>
+            </div>
+
+            <div className="p-3 mb-5 bg-info bg-opacity-10 border border-success border-start-0 border-end-0 rounded-end">
+                <div className="tab-pane fade show active" id="professors" role="tabpanel" aria-labelledby="professors-tab">
+                    <ProfList/></div>
+            </div>
+
+
 
             <div className="p-3 mb-5 bg-info bg-opacity-10 border border-success border-start-0 border-end-0 rounded-end">
                 <div className="tab-pane fade show active" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">
