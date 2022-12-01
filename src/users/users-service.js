@@ -1,11 +1,11 @@
 import axios from "axios";
-// use temporary local url for now - will change later
-const BASE_URL = "http://localhost:4000";
+// const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://rateprof-backend.herokuapp.com";
 
 export const createUser = async () => {};
 
 export const findAllUsers = async () => {
-  const response = await axios.get("http://localhost:4000/users");
+  const response = await axios.get(`${BASE_URL}/users`);
   return response.data;
 };
 
