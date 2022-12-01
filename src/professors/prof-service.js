@@ -1,13 +1,17 @@
-import axios from "axios"
+import axios from "axios";
 
-const base_api = "https://rateprof-backend.herokuapp.com"
+const REACT_API_BASE_URL = process.env.REACT_API_BASE_URL;
 
 export const getProfessors = async (name, university) => {
-    const resp = await axios.get(`${base_api}/professors`, {params: {name: name, university: university}});
-    return resp.data;
+  const resp = await axios.get(`${REACT_API_BASE_URL}/professors`, {
+    params: { name: name, university: university },
+  });
+  return resp.data;
 };
 
 export const searchProfessors = async (name, university) => {
-    const resp = await axios.get(`${base_api}/searchprofessors`, {params: {name: name, university: university}});
-    return resp.data;
+  const resp = await axios.get(`${REACT_API_BASE_URL}/searchprofessors`, {
+    params: { name: name, university: university },
+  });
+  return resp.data;
 };
