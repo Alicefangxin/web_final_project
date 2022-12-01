@@ -73,3 +73,9 @@
     background-color: transparent;
     color: #393b3b;
 }
+
+.d-login-footer {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+}

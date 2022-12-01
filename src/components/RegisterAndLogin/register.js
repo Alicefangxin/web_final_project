@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "../../users/users-thunks";
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown } from "semantic-ui-react";
+import Footer from "../footer/Footer";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -160,6 +161,9 @@ const Register = () => {
         </div>
         {currentUser && <h2>Welcome {currentUser.username}</h2>}
       </section>
+      <div className="d-login-footer">
+        <Footer />
+      </div>
     </>
   );
 };
