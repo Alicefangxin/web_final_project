@@ -1,48 +1,42 @@
-import './App.css';
-import {BrowserRouter, Navigate} from "react-router-dom";
-import {Route, Routes} from "react-router"
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import HelloWorld from "./components/HelloWorld";
-import RegisterPage from "./components/RegisterPage/RegisterPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import profileReducer from "./components/ProfilePage/profile-reducer";
-import EditProfile from "./components/edit-profile";
-import EditProfileAccount from "./components/edit-profile-account";
-import {configureStore} from '@reduxjs/toolkit';
-import {Provider} from "react-redux";
-import SearchComponent from "./components/SearchPage/index.js";
-import DetailComponent from "./components/DetailPage/index.js";
+import EditProfileComponent from "./components/edit-profile";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import usersReducer from "./users/users-reducer";
+import Register from "./components/RegisterAndLogin/register";
+import Login from "./components/RegisterAndLogin/login";
 
-const store = configureStore(
-       {reducer: {profile: profileReducer}});
+const store = configureStore({
+  reducer: { profile: profileReducer, users: usersReducer },
+});
 
 function App() {
   return (
-       <Provider store={store}>
+    <Provider store={store}>
       <BrowserRouter>
-        <div className="container" id={"root"}>
+        <div className="container">
           <Routes>
-              <Route path="/" element={<Navigate replace to="/home"/>} />
-              <Route path="/">
-                     <Route path="home"
-                            element={<HomePage/>}/>
-                     <Route path="register"
-                            element={<RegisterPage/>}/>
-                     <Route path="profile"
-                            element={<ProfilePage/>}/>
-                     <Route path="profile/edit-profile" element={<EditProfile/>}/>
-                     <Route path="profile/edit-profile-account" element={<EditProfileAccount/>}/>
-                     <Route path="search"
-                            element={<SearchComponent/>}/>
-                     <Route path="detail"
-                            element={<DetailComponent/>}/>
-                     <Route path="hello"
-                            element={<HelloWorld/>}/>
-              </Route>
+            <Route>
+              <Route index element={<HomePage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route
+                path="/profile/edit-profile"
+                element={<EditProfileComponent />}
+              />
+              <Route path="/hello" element={<HelloWorld />} />
+            </Route>
           </Routes>
         </div>
       </BrowserRouter>
-      </Provider>
+    </Provider>
   );
 }
 export default App;
