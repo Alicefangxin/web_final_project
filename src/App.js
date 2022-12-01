@@ -1,7 +1,7 @@
 import "./App.css";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-import HomePage from "./components/HomePage/HomePage";
+import UnloggedHome from "./components/unlogged-ome/UnloggedHome";
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import profileReducer from "./components/ProfilePage/profile-reducer";
@@ -12,11 +12,13 @@ import { Provider } from "react-redux";
 import usersReducer from "./users/users-reducer";
 import Register from "./components/RegisterAndLogin/register";
 import Login from "./components/RegisterAndLogin/login";
-import LoginContent from "./components/LoginContent/LoginContent";
+import LoggedHome from "./components/logged-home/LoggedHome";
+import SearchComponent from "./components/SearchPage";
+import searchedReducer from "./components/SearchPage/searched-reducer";
 
 
 const store = configureStore({
-    reducer: {profile: profileReducer, users: usersReducer, professors: profReducer},
+    reducer: {profile: profileReducer, users: usersReducer, professors: profReducer, searched: searchedReducer},
 });
 
 function App() {
@@ -26,11 +28,12 @@ function App() {
                 <div className="container">
                     <Routes path="/">
                         <Route>
-                            <Route index element={<HomePage/>}/>
-                            <Route path="/home" element={<LoginContent/>}/>
+                            <Route index element={<UnloggedHome/>}/>
+                            <Route path="/home" element={<LoggedHome/>}/>
                             <Route path="/register" element={<Register/>}/>
                             <Route path="/login" element={<Login/>}/>
                             <Route path="/profile" element={<ProfilePage/>}/>
+                            <Route path="/search" element={<SearchComponent/>}/>
                             <Route
                                 path="/profile/edit-profile"
                                 element={<EditProfileComponent/>}

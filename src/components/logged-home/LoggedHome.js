@@ -3,7 +3,7 @@ import DetailComponent from "../DetailPage";
 import ProfList from "../../professors";
 
 
-const LoginContent = () => {
+const LoggedHome = () => {
     return (
         <>
             <div className="pt-2">
@@ -49,7 +49,7 @@ const LoginContent = () => {
                 <div className="input-group mb-3">
                     <input type="text" aria-describedby="button-addon2"
                            className="form-control wd-H-searchBar d-flex justify-content-center rounded-pill border border-5 border-secondary border-opacity-25"
-                           placeholder="Search for Your Professor........"/>
+                           placeholder="Search Professors by Name ......"/>
                     <button className="ms-3 btn btn-outline-secondary rounded-pill border border-5 border-secondary border-opacity-25"
                             type="button" id="button-addon2">Confirm</button>
                 </div>
@@ -107,4 +107,4 @@ const LoginContent = () => {
     );
 };
 
-export default LoginContent;
+export default LoggedHome;
