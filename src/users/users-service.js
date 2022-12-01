@@ -11,11 +11,13 @@ export const findAllUsers = async () => {
 
 export const register = async (user) => {
   const response = await axios.post(`${BASE_URL}/register`, user);
+  console.log("res after register: ", response);
   return response.data;
 };
 
 export const login = async (user) => {
   const response = await axios.post(`${BASE_URL}/login`, user);
+  console.log("res after login: ", response);
   return response.data;
 };
 

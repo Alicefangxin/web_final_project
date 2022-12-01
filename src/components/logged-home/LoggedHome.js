@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
+import React from "react";
 import DetailComponent from "../DetailPage";
 import ProfList from "../../professors";
 import {Link} from "react-router-dom";
-
 
 const LoggedHome = () => {
     return (
@@ -95,10 +96,11 @@ const LoggedHome = () => {
                 <div className="tab-pane fade show active" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">
                     <DetailComponent/></div>
             </div>
-
-            <div className="fixed-bottom bg-success fw-bold bg-opacity-25">R8MyPro..</div>
-        </>
-    );
+      <div className="fixed-bottom bg-success fw-bold bg-opacity-25">
+        R8MyPro..
+      </div>
+    </>
+  );
 };
 
 export default LoggedHome;

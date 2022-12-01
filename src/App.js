@@ -1,11 +1,11 @@
 import "./App.css";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import UnloggedHome from "./components/unlogged-ome/UnloggedHome";
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import profileReducer from "./components/ProfilePage/profile-reducer";
-import profReducer from "./professors/professors-reducer"
+import profReducer from "./professors/professors-reducer";
 import EditProfileComponent from "./components/edit-profile";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
@@ -15,6 +15,7 @@ import Login from "./components/RegisterAndLogin/login";
 import LoggedHome from "./components/logged-home/LoggedHome";
 import SearchComponent from "./components/SearchPage";
 import searchedReducer from "./components/SearchPage/searched-reducer";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 const store = configureStore({
@@ -32,12 +33,23 @@ function App() {
                             <Route path="/home" element={<LoggedHome/>}/>
                             <Route path="/register" element={<Register/>}/>
                             <Route path="/login" element={<Login/>}/>
-                            <Route path="/profile" element={<ProfilePage/>}/>
-                            <Route path="/search" element={<SearchComponent/>}/>
+                            <Route
+                                path="/profile"
+                                element={
+                                    <ProtectedRoute>
+                                        <ProfilePage />
+                                    </ProtectedRoute>
+                                }
+                            />
                             <Route
                                 path="/profile/edit-profile"
-                                element={<EditProfileComponent/>}
+                                element={
+                                    <ProtectedRoute>
+                                        <EditProfileComponent />
+                                    </ProtectedRoute>
+                                }
                             />
+                            <Route path="/search" element={<SearchComponent/>}/>
                             <Route path="/hello" element={<HelloWorld/>}/>
                         </Route>
                     </Routes>
