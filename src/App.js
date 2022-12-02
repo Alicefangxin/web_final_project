@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
@@ -29,7 +29,7 @@ function App() {
   console.log("loading App.js");
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <div className="container">
           <Routes path="/">
             <Route>
@@ -50,7 +50,7 @@ function App() {
             </Route>
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 }
