@@ -1,9 +1,8 @@
 import "./profilePage.css";
 import { useSelector, useDispatch } from "react-redux";
-import { BrowserRouter, useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import {current} from "@reduxjs/toolkit";
 import React from "react";
-import ResultList from "../SearchPage/result-list.js";
-import DetailComponent from "../DetailPage/index.js";
 import { logoutThunk } from "../../users/users-thunks";
 import {Routes, Route} from "react-router";
 import ProfileHomeComponent from "./profileHome";
@@ -13,18 +12,10 @@ import ProfileProfessorsComponent from "./profileProfessors";
 import Navs from "./navs";
 
 const ProfilePage = () => {
-  const profile = useSelector((state) => state.profile);
+  const {currentUser} = useSelector((state) => state.users)
+  // const profile = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `edit-profile`;
-    navigate(path);
-  };
-  const routeChange2 = () => {
-    let path2 = `edit-profile-account`;
-    navigate(path2);
-  };
-
   const logOutBtnHandler = (e) => {
     e.preventDefault();
     // clear data from storage
@@ -55,9 +46,14 @@ const ProfilePage = () => {
             </div>
             <div class="col-md-7">
               <div class="profile-head">
-                <h5>
+                {
+                    currentUser &&
+                    <h5>Welcome {currentUser.username}</h5>
+                }
+
+                {/* <h5>
                   {profile.firstName} {profile.lastName}
-                </h5>
+                </h5> */}
                 <h6>Student</h6>
                 <br />
                 <br />
