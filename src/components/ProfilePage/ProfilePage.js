@@ -1,7 +1,7 @@
 import "./profilePage.css";
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
 import ProfileHomeComponent from "./profileHome";
 import ProfileAccountComponent from "./profileAccount";
 import ProfileRatingsComponent from "./profileRatings";
@@ -13,11 +13,13 @@ const ProfilePage = () => {
   const { currentUser } = useSelector((state) => state.users);
   // const profile = useSelector((state) => state.profile);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const logOutBtnHandler = () => {
     localStorage.removeItem("username");
     sessionStorage.clear();
     dispatch(logout());
+    navigate("login");
   };
 
   return (

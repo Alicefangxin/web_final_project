@@ -4,6 +4,7 @@ import {
   findAllUsersThunk,
   loginThunk,
   registerThunk,
+  loadSingleUserThunk,
 } from "./users-thunks";
 
 const usersReducer = createSlice({
@@ -25,6 +26,9 @@ const usersReducer = createSlice({
   extraReducers: {
     [findAllUsersThunk.fulfilled]: (state, action) => {
       state.users = action.payload;
+    },
+    [loadSingleUserThunk.fulfilled]: (state, action) => {
+      state.currentUser = action.payload;
     },
     [loginThunk.fulfilled]: (state, action) => {
       state.currentUser = action.payload;
