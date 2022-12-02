@@ -26,10 +26,5 @@ export const profile = async () => {
   return response.data;
 };
 
-export const logout = async () => {
-  const response = await axios.post(`${BASE_URL}/logout`);
-  return response.data;
-};
-
 export const deleteUser = async (uid) => {};
 export const updateUser = async (uid, userUpdates) => {};
