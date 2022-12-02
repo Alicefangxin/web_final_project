@@ -10,7 +10,9 @@ export const findAllUsers = async () => {
 };
 
 export const loadSingleUser = async (username) => {
-  const response = await axios.get(`${BASE_URL}/user/${username}`);
+  const response = await axios.get(`${BASE_URL}/oneuser`, {
+    params: { username },
+  });
   return response.data;
 };
 
