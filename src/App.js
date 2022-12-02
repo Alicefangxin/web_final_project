@@ -26,6 +26,7 @@ const store = configureStore({
 });
 
 function App() {
+  console.log("loading App.js");
   return (
     <Provider store={store}>
       <BrowserRouter>
