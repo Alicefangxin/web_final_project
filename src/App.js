@@ -33,22 +33,24 @@ function App() {
                             <Route path="/home" element={<LoggedHome/>}/>
                             <Route path="/register" element={<Register/>}/>
                             <Route path="/login" element={<Login/>}/>
-                            <Route
+                            {/* <Route
                                 path="/profile"
                                 element={
-                                    <ProtectedRoute>
-                                        <ProfilePage />
-                                    </ProtectedRoute>
+                                     <ProtectedRoute>
+                                        <ProfilePage/>
+                                     </ProtectedRoute>
                                 }
                             />
                             <Route
                                 path="/profile/edit-profile"
                                 element={
                                     <ProtectedRoute>
-                                        <EditProfileComponent />
-                                    </ProtectedRoute>
+                                        <EditProfileComponent/>
+                                     </ProtectedRoute>
                                 }
-                            />
+                            /> */}
+                            <Route path="/profile/*"
+                                   element={<ProfilePage/>}/>
                             <Route path="/search" element={<SearchComponent/>}/>
                             <Route path="/hello" element={<HelloWorld/>}/>
                         </Route>
