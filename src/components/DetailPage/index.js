@@ -3,10 +3,10 @@ import "./index.css";
 import ReviewList from "./review-list";
 import ProfInfo from "./ProfInfo";
 
-const DetailComponent = () => {
+const DetailComponent = (info) => {
     return(
         <>
-            <ProfInfo/>
+            <ProfInfo key={info._id} info={info}/>
             <ReviewList/>
         </>
     )
