@@ -15,6 +15,8 @@ import SearchComponent from "./components/SearchPage";
 import searchedReducer from "./components/SearchPage/searched-reducer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnloggedHome from "./components/unlogged-home/UnloggedHome";
+import DetailComponent from "./components/DetailPage";
+import AddRating from "./components/DetailPage/add-rating";
 
 const store = configureStore({
   reducer: {
@@ -33,10 +35,10 @@ function App() {
         <div className="container">
           <Routes path="/">
             <Route>
-              <Route index element={<UnloggedHome />} />
-              <Route path="/home" element={<LoggedHome />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
+              <Route index element={<UnloggedHome/>}/>
+              <Route path="/home" element={<LoggedHome/>}/>
+              <Route path="/register" element={<Register/>}/>
+              <Route path="/login" element={<Login/>}/>
               <Route
                 path="/profile/*"
                 element={
@@ -45,7 +47,9 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/search" element={<SearchComponent />} />
+              <Route path="/search" element={<SearchComponent/>}/>
+              <Route path="/details" element={<DetailComponent/>}/>
+              <Route path="/addrating" element={<AddRating/>}/>
               <Route path="/hello" element={<HelloWorld />} />
             </Route>
           </Routes>
