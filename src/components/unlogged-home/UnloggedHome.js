@@ -44,7 +44,7 @@ const UnloggedHome = () => {
                 </div>
                 <div className="mt-1">
                     <img
-                        className="rounded-5 me-1"
+                        className="rounded-5 ms-2 me-2"
                         src="https://pbs.twimg.com/media/ExQ97nJXMAM2AJH?format=jpg&name=medium"
                         width="350"
                      alt="none"/>
@@ -60,7 +60,7 @@ const UnloggedHome = () => {
                         alt="none"/>
                 </div>
             </div>
-            <div className="pt-2">
+            <div className="pt-2 mt-3">
                 <h2>Professors in Trends</h2>
             </div>
             <div className="p-3 mb-5 bg-info bg-opacity-10 border border-success border-start-0 border-end-0 rounded-end">
