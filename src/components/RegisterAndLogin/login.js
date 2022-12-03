@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginThunk } from "../../users/users-thunks";
+import Footer from "../footer/Footer";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -96,6 +97,9 @@ const Login = () => {
           </div>
         )}
         {currentUser && <h2>Welcome {currentUser.username}</h2>}
+      </div>
+      <div className="d-login-footer">
+        <Footer />
       </div>
     </>
   );
