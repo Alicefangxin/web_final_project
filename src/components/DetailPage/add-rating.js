@@ -1,9 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import InfoArray from "../SearchPage/profInfos.json";
+import {Link} from "react-router-dom";
+import SubmittedComponent from "./submitted";
 const AddRating = () => {
+    const {course, setCourse} = useState("");
+    const {quality, setQuality} = useState("");
+    const {difficulty, setDifficulty} = useState("");
+    const {again, setAgain} = useState("");
+    const {review, setReview} = useState("");
+
     return(
         <>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="fs-1">Rate: <span className="fw-bolder">{InfoArray[1].name}</span> </div>
                 <div className="fw-bolder">{InfoArray[1].department}</div>
                 <ul className="list-group mt-5">
@@ -96,7 +104,11 @@ const AddRating = () => {
                         <textarea className="form-control mt-3 rows=5"></textarea>
                     </li>
                 </ul>
-                <button className="mt-4 mb-5 btn btn-primary float-end">Submit</button>
+                <Link to="/submitted">
+                    <button
+                        onClick={()=>{<SubmittedComponent/>}}
+                        className="mt-4 mb-5 btn btn-primary float-end">Submit</button>
+                </Link>
             </div>
         </>
     )

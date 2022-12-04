@@ -1,5 +1,6 @@
 import React from "react";
 import DetailComponent from "../DetailPage/index.js";
+import {Link} from "react-router-dom";
 const ResultItem = (
     {
         info = {
@@ -33,7 +34,9 @@ const ResultItem = (
                     </div>
                 </div>
                 <div className="col-2">
-                    <button onClick={()=><DetailComponent/>} className="btn btn-dark float-end">See Rating</button>
+                    <Link to="/details">
+                        <button onClick={()=><DetailComponent/>} className="btn btn-dark float-end">See Rating</button>
+                    </Link>
                 </div>
             </div>
         </li>

@@ -15,6 +15,12 @@ import SearchComponent from "./components/SearchPage";
 import searchedReducer from "./components/SearchPage/searched-reducer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnloggedHome from "./components/unlogged-home/UnloggedHome";
+import DetailComponent from "./components/DetailPage";
+import AddRating from "./components/DetailPage/add-rating";
+import SubmittedComponent from "./components/DetailPage/submitted";
+import tempProfsReducers from "./components/temp-prof-for-detail/temp-prof-reducers";
+import TempProfList from "./components/DetailPage/temp-prof-list";
+import UserList from "./users";
 
 const store = configureStore({
   reducer: {
@@ -22,6 +28,7 @@ const store = configureStore({
     users: usersReducer,
     professors: profReducer,
     searched: searchedReducer,
+    temp: tempProfsReducers
   },
 });
 
@@ -45,7 +52,12 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/search" element={<SearchComponent />} />
+              <Route path="/search" element={<SearchComponent />}/>
+              <Route path="/details" element={<DetailComponent/>}/>
+              <Route path="/temp" element={<TempProfList/>}/>
+              <Route path="/users" element={<UserList/>}/>
+              <Route path="/details/addrating" element={<AddRating/>}/>
+              <Route path="/submitted" element={<SubmittedComponent/>}/>
               <Route path="/hello" element={<HelloWorld />} />
             </Route>
           </Routes>

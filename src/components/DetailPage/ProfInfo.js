@@ -21,7 +21,7 @@ const ProfInfo = (
 ) => {
     return(
         <>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col">
                         <div className="fs-1 fw-bolder">{InfoArray[1].rating} <span className="fs-5 fw-normal text-secondary"> / 5</span> </div>
@@ -38,9 +38,11 @@ const ProfInfo = (
                                 <div>Level of Difficulty</div>
                             </div>
                         </div>
-                        <button onClick={()=><AddRating/>}
-                            className="mt-3 btn btn-primary rounded-pill fw-bolder">
-                            Rate Professor Annunziato</button>
+                        <Link to="/details/addrating">
+                            <button onClick={()=><AddRating/>}
+                                    className="mt-3 btn btn-primary rounded-pill fw-bolder">
+                                Rate Professor Annunziato</button>
+                        </Link>
                         <div className="mt-2 d-flex flex-row bd-highlight">
                             <div className="p-2 bd-highlight border-1 border-end border-dark">
                                 <Link to="#" className="text-dark">I'm Professor Annunziato</Link>

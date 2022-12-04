@@ -1,5 +1,8 @@
 import React from "react";
 import "./index.css";
+import ProfileAccountComponent from "../ProfilePage/profileAccount";
+import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 const ReviewItem = (
     {
         review = {
@@ -13,6 +16,7 @@ const ReviewItem = (
         }
     }
 ) => {
+    const {currentUser} = useSelector((state) => state.users)
     return(
         <li className="list-group-item bg-light mt-3 border-0 wd-review">
             <div className="row m-3">
@@ -31,9 +35,24 @@ const ReviewItem = (
                     <div className="mt-2 wd-margin-left">
                         Would Take Again: <span className="fw-bolder">{review.WouldTakeAgain}</span>
                     </div>
-                    <div className="mt-5 wd-margin-left">
-                        {review.review}
-                    </div>
+                    { currentUser &&
+                        <Link to="/profile">
+                            <div
+                                onClick={() => <ProfileAccountComponent/>}
+                                className="mt-5 wd-margin-left fw-bolder">
+                                @{review.username}
+                            </div>
+                            <div className="mt-2 wd-margin-left">
+                                {review.review}
+                            </div>
+                        </Link>
+                    }
+                    { !currentUser &&
+                        <div className="mt-5 wd-margin-left">
+                            {review.review}
+                        </div>
+                    }
+
                 </div>
             </div>
         </li>
