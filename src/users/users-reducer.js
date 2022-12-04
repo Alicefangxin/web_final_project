@@ -28,6 +28,9 @@ const usersReducer = createSlice({
     [findAllUsersThunk.fulfilled]: (state, action) => {
       state.users = action.payload;
     },
+    [loadSingleUserThunk.fulfilled]: (state, action) => {
+      state.currentUser = action.payload;
+    },
     [loginThunk.fulfilled]: (state, action) => {
       state.currentUser = action.payload;
     },
@@ -50,7 +53,7 @@ const usersReducer = createSlice({
       state.currentUser = null;
     },
     [updateProfileThunk.fulfilled]: (state, action) => {
-      state.users = action.payload;
+      state.currentUser = action.payload;
     },
   },
 });

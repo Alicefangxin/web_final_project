@@ -42,6 +42,6 @@ export const deleteUser = async (uid) => {};
 // export const updateUser = async (uid, userUpdates) => {};
 
 export const updateUser = async (user, userUpdates) => {
-  const response = await axios.post(`${BASE_URL}/profile`, user, userUpdates);
+  const response = await axios.post(`${BASE_URL}/profile/edit-profile`, user, userUpdates);
   return response.data;
 }

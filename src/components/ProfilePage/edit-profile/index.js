@@ -20,7 +20,7 @@ const EditProfile = () => {
             school: s,
             expectedYearOfGraduation: eyg,
         }
-        dispatch(updateProfileThunk(currentUser,newProfile));
+        dispatch(updateProfileThunk(currentUser.username,newProfile));
         navigate('/profile/home');
     }
 
@@ -41,18 +41,25 @@ const EditProfile = () => {
                 <input type="text" id="inputFirstName" className="form-control"
                         onChange={(e)=>{setFirstName({firstName: e.target.value})}}
                         value={firstName.firstName}/><br/>
+                        {/* value={firstName.firstName || ''}/><br/> */}
+
                 <label htmlFor="inputLastName">Last Name</label><br/>
                 <input type="text" id="inputLastName" className="form-control"
                         onChange={(e)=>{setLastName({lastName: e.target.value})}}
                         value={lastName.lastName}/><br/>
+                        {/* value={lastName.lastName || ''}/><br/> */}
+
                 <label htmlFor="inputSchool">School</label><br/>
                 <textarea type="text" className="form-control"
                     onChange={(e)=>{setSchool({school: e.target.value})}}
                     value={school.school} id="inputSchool"/><br/>
+                    {/* value={school.school || ''} id="inputSchool"/><br/> */}
+
                 <label htmlFor="inputEYG">Expected Year Of Graduation</label><br/>
                 <input type="date" id="inputEYG" className="form-control"
                        onChange={(e)=>{setEYG({expectedYearOfGraduation: e.target.value})}}
                        value={expectedYearOfGraduation.expectedYearOfGraduation}/>
+                        {/* value={expectedYearOfGraduation.expectedYearOfGraduation || ''}/> */}
             </div>
         </>
     )
