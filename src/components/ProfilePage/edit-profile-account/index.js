@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile } from "../ProfilePage/profile-reducer";
+import { updateProfile } from "../profile-reducer";
 import { useNavigate } from "react-router-dom";
+import { updateProfileThunk } from "../../../users/users-thunks";
 
 const EditProfileAccount = () => {
-    const profile = useSelector( state => state.profile );
-    const [email, setEmail] = useState({email: profile.email});
-    const [password, setPassword] = useState({password: profile.password});
+    const {currentUser} = useSelector((state) => state.users);
+    const [email, setEmail] = useState({email: currentUser.email});
+    const [password, setPassword] = useState({password: currentUser.password});
     const dispatch = useDispatch();
     let navigate = useNavigate();
 
@@ -15,15 +16,15 @@ const EditProfileAccount = () => {
             email: e,
             password: p,
         }
-        dispatch(updateProfile(newProfile));
-        navigate('/profile');
+        dispatch(updateProfileThunk(currentUser, newProfile));
+        navigate('/profile/account');
     }
 
     return (
         <>
             <div className="position-relative">
                 <div className="row">
-                <div className="col col-2 mt-2" onClick={() => navigate('/profile')}>
+                <div className="col col-2 mt-2" onClick={() => navigate('/profile/account')}>
                     <i className="bi bi-x-lg fs-4 fw-bold"></i></div>
                     <div className="col col-8 mt-2"><span className="fs-4 fw-bold">Edit Account</span></div>
                     <button className="col col-2 btn btn-dark float-end fw-bold rounded-pill"

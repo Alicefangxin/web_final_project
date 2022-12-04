@@ -9,6 +9,13 @@ export const findAllUsers = async () => {
   return response.data;
 };
 
+export const loadSingleUser = async (username) => {
+  const response = await axios.get(`${BASE_URL}/oneuser`, {
+    params: { username },
+  });
+  return response.data;
+};
+
 export const register = async (user) => {
   const response = await axios.post(`${BASE_URL}/register`, user);
   console.log("res after register: ", response);
@@ -32,4 +39,9 @@ export const logout = async () => {
 };
 
 export const deleteUser = async (uid) => {};
-export const updateUser = async (uid, userUpdates) => {};
+// export const updateUser = async (uid, userUpdates) => {};
+
+export const updateUser = async (user, userUpdates) => {
+  const response = await axios.post(`${BASE_URL}/profile`, user, userUpdates);
+  return response.data;
+}

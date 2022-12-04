@@ -1,11 +1,9 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import profileReducer from "./components/ProfilePage/profile-reducer";
 import profReducer from "./professors/professors-reducer";
-import EditProfileComponent from "./components/edit-profile";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import usersReducer from "./users/users-reducer";
@@ -29,30 +27,20 @@ function App() {
                 <div className="container">
                     <Routes path="/">
                         <Route>
-                            <Route index element={<UnloggedHome/>}/>
-                            <Route path="/home" element={<LoggedHome/>}/>
-                            <Route path="/register" element={<Register/>}/>
-                            <Route path="/login" element={<Login/>}/>
-                            {/* <Route
-                                path="/profile"
-                                element={
-                                     <ProtectedRoute>
-                                        <ProfilePage/>
-                                     </ProtectedRoute>
-                                }
-                            />
-                            <Route
-                                path="/profile/edit-profile"
-                                element={
-                                    <ProtectedRoute>
-                                        <EditProfileComponent/>
-                                     </ProtectedRoute>
-                                }
-                            /> */}
-                            <Route path="/profile/*"
-                                   element={<ProfilePage/>}/>
-                            <Route path="/search" element={<SearchComponent/>}/>
-                            <Route path="/hello" element={<HelloWorld/>}/>
+                        <Route index element={<UnloggedHome />} />
+                        <Route path="/home" element={<LoggedHome />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route
+                            path="/profile/*"
+                            element={
+                            <ProtectedRoute>
+                                <ProfilePage />
+                            </ProtectedRoute>
+                            }
+                        />
+                        <Route path="/search" element={<SearchComponent />} />
+                        <Route path="/hello" element={<HelloWorld />} />
                         </Route>
                     </Routes>
                 </div>

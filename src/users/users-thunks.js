@@ -3,8 +3,9 @@ import {
   findAllUsers,
   register,
   login,
-  logout,
   profile,
+  loadSingleUser,
+  updateUser,
 } from "./users-service";
 
 export const findAllUsersThunk = createAsyncThunk(
@@ -17,16 +18,22 @@ export const registerThunk = createAsyncThunk(
   async (user) => await register(user)
 );
 
-export const logoutThunk = createAsyncThunk(
-  "logout",
-  async () => await logout()
-);
-
 export const loginThunk = createAsyncThunk(
   "login",
   async (user) => await login(user)
 );
+
 export const profileThunk = createAsyncThunk(
   "profile",
   async () => await profile()
+);
+
+export const loadSingleUserThunk = createAsyncThunk(
+  "loadSingleUser",
+  async (username) => await loadSingleUser(username)
+);
+
+export const updateProfileThunk = createAsyncThunk(
+  'userUpdate',
+  async(user, userUpdate) => await updateUser(user, userUpdate)
 );
