@@ -6,10 +6,10 @@ const Navs = () => {
   const paths = pathname.split("/");
   const active = paths[2];
   return (
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
+    <ul className="nav nav-tabs">
+      <li className="nav-item">
         <a
-          class={`nav-link
+          className={`nav-link
                     ${active === "home" ? "active" : ""}`}
           id="home-tab"
           data-toggle="tab"
@@ -21,9 +21,9 @@ const Navs = () => {
           Home
         </a>
       </li>
-      <li class="nav-item">
+      <li className="nav-item">
         <a
-          class={`nav-link
+          className={`nav-link
                     ${active === "account" ? "active" : ""}`}
           data-toggle="tab"
           href="/profile/account"
@@ -34,9 +34,9 @@ const Navs = () => {
           Account Settings
         </a>
       </li>
-      <li class="nav-item">
+      <li className="nav-item">
         <a
-          class={`nav-link
+          className={`nav-link
                     ${active === "ratings" ? "active" : ""}`}
           id="ratings-tab"
           data-toggle="tab"
@@ -48,9 +48,9 @@ const Navs = () => {
           Your Ratings
         </a>
       </li>
-      <li class="nav-item">
+      <li className="nav-item">
         <a
-          class={`nav-link
+          className={`nav-link
                     ${active === "professors" ? "active" : ""}`}
           id="professors-tab"
           data-toggle="tab"

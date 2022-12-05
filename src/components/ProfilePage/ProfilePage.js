@@ -5,8 +5,10 @@ import { Routes, Route, useNavigate } from "react-router";
 import ProfileHomeComponent from "./profileHome";
 import ProfileAccountComponent from "./profileAccount";
 import ProfileRatingsComponent from "./profileRatings";
+import EditProfileComponent from "./EditProfile";
+import EditProfileAccountComponent from "./EditProfileAccount";
 import ProfileProfessorsComponent from "./profileProfessors";
-import Navs from "./navs";
+import Navs from "./Navs";
 import { logout } from "../../users/users-reducer";
 
 const ProfilePage = () => {
@@ -24,11 +26,11 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div class="container emp-profile">
+      <div className="container emp-profile">
         <form method="post">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="profile-head">
+          <div className="row">
+            <div className="col-md-3">
+              <div className="profile-head">
                 <h4>Your Account</h4>
                 <div
                   className="d-actions-button rounded-pill"
@@ -38,8 +40,8 @@ const ProfilePage = () => {
                 </div>
               </div>
             </div>
-            <div class="col-md-7">
-              <div class="profile-head">
+            <div className="col-md-7">
+              <div className="profile-head">
                 {currentUser && <h5>Welcome {currentUser.username}</h5>}
 
                 {/* <h5>
@@ -52,16 +54,26 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-7">
-              <div class="tab-content profile-tab" id="myTabContent">
+          <div className="row">
+            <div className="col-md-3"></div>
+            <div className="col-md-7">
+              <div className="tab-content profile-tab" id="myTabContent">
                 <Routes>
+                  <Route index element={<ProfileHomeComponent />} />
                   <Route path="/home" element={<ProfileHomeComponent />} />
+                  <Route
+                    path="/home/edit-profile"
+                    element={<EditProfileComponent />}
+                  />
                   <Route
                     path="/account"
                     element={<ProfileAccountComponent />}
                   />
+                  <Route
+                    path="/account/edit-profile-account"
+                    element={<EditProfileAccountComponent />}
+                  />
+
                   <Route
                     path="/ratings"
                     element={<ProfileRatingsComponent />}

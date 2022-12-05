@@ -4,55 +4,52 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const ProfileHomeComponent = () => {
-  const profile = useSelector((state) => state.profile);
+  const { currentUser } = useSelector((state) => state.users);
+  console.log("ProfileHomeComponent current user: ", currentUser);
   let navigate = useNavigate();
   const routeChange = () => {
     let path = `edit-profile`;
     navigate(path);
   };
 
+  if (!currentUser) {
+    return null;
+  }
+
   return (
     <>
       <div>
-        <div class="col-md-12">
+        <div className="col-md-12">
           <button
             type="button"
-            class="btn btn-light float-end fw-bold rouded-pill"
+            className="btn btn-light float-end fw-bold rouded-pill"
             onClick={routeChange}
           >
             Edit Profile
           </button>
         </div>
-        <div class="row">
-          <div class="col-md-6">
+        <div className="row">
+          <div className="col-md-6">
             <label>First Name</label>
           </div>
-          <div class="col-md-6">
-            <p>{profile.firstName}</p>
+          <div className="col-md-6">
+            <p>{currentUser.firstName ?? ""}</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
+        <div className="row">
+          <div className="col-md-6">
             <label>Last Name</label>
           </div>
-          <div class="col-md-6">
-            <p>{profile.lastName}</p>
+          <div className="col-md-6">
+            <p>{currentUser.lastName ?? ""}</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
+        <div className="row">
+          <div className="col-md-6">
             <label>School</label>
           </div>
-          <div class="col-md-6">
-            <p>{profile.school}</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Expected Year Of Graduation</label>
-          </div>
-          <div class="col-md-6">
-            <p>{profile.expectedYearOfGraduation}</p>
+          <div className="col-md-6">
+            <p>{currentUser.school ?? ""}</p>
           </div>
         </div>
       </div>

@@ -3,7 +3,6 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
-import profileReducer from "./components/ProfilePage/profile-reducer";
 import profReducer from "./professors/professors-reducer";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
