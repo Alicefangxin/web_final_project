@@ -5,10 +5,10 @@ import { Routes, Route, useNavigate } from "react-router";
 import ProfileHomeComponent from "./profileHome";
 import ProfileAccountComponent from "./profileAccount";
 import ProfileRatingsComponent from "./profileRatings";
-import EditProfileComponent from "./edit-profile";
-import EditProfileAccountComponent from "./edit-profile-account";
+import EditProfileComponent from "./EditProfile";
+import EditProfileAccountComponent from "./EditProfileAccount";
 import ProfileProfessorsComponent from "./profileProfessors";
-import Navs from "./navs";
+import Navs from "./Navs";
 import { logout } from "../../users/users-reducer";
 
 const ProfilePage = () => {

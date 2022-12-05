@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { updateProfileThunk } from "../../../users/users-thunks";
+import { updateProfileThunk } from "../../users/users-thunks";
 
 const EditProfileAccount = () => {
   const { currentUser } = useSelector((state) => state.users);
