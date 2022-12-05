@@ -1,6 +1,6 @@
 import axios from "axios";
-// const BASE_URL = "http://localhost:4000";
-const BASE_URL = "https://rateprof-backend.herokuapp.com";
+const BASE_URL = "http://localhost:4000";
+// const BASE_URL = "https://rateprof-backend.herokuapp.com";
 
 export const createUser = async () => {};
 
@@ -41,7 +41,10 @@ export const logout = async () => {
 export const deleteUser = async (uid) => {};
 // export const updateUser = async (uid, userUpdates) => {};
 
-export const updateUser = async (user, userUpdates) => {
-  const response = await axios.post(`${BASE_URL}/profile/edit-profile`, user, userUpdates);
+export const updateUser = async (newProfile) => {
+  const response = await axios.put(
+    `${BASE_URL}/profile/edit-profile/`,
+    newProfile
+  );
   return response.data;
-}
+};

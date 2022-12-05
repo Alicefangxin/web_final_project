@@ -59,17 +59,20 @@ const ProfilePage = () => {
             <div className="col-md-7">
               <div className="tab-content profile-tab" id="myTabContent">
                 <Routes>
+                  <Route index element={<ProfileHomeComponent />} />
                   <Route path="/home" element={<ProfileHomeComponent />} />
-                  <Route 
-                    path="/home/edit-profile" 
-                    element={<EditProfileComponent />}/>
+                  <Route
+                    path="/home/edit-profile"
+                    element={<EditProfileComponent />}
+                  />
                   <Route
                     path="/account"
                     element={<ProfileAccountComponent />}
                   />
-                  <Route 
-                    path="/account/edit-profile-account" 
-                    element={<EditProfileAccountComponent />}/>
+                  <Route
+                    path="/account/edit-profile-account"
+                    element={<EditProfileAccountComponent />}
+                  />
 
                   <Route
                     path="/ratings"

@@ -34,6 +34,6 @@ export const loadSingleUserThunk = createAsyncThunk(
 );
 
 export const updateProfileThunk = createAsyncThunk(
-  'userUpdate',
-  async(username, userUpdate) => await updateUser(username, userUpdate)
+  "userUpdate",
+  async (newProfile) => await updateUser(newProfile)
 );
