@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { findAllProfsThunk, findProfByIdThunk } from "./temp-profs-thunks";
+import {findAllProfsThunk, findProfByIdThunk, findProfByNameThunk} from "./temp-profs-thunks";
 
 const initialState = {
   profs: [],
   loading: false,
-  // details: {}
+  details: {}
 };
 
 const tempProfsReducer = createSlice({
@@ -22,10 +22,13 @@ const tempProfsReducer = createSlice({
     [findAllProfsThunk.rejected]: (state) => {
       state.loading = false;
     },
-    /*[findProfByIdThunk.fulfilled]: (state, {payload}) => {
-            state.details = payload
-        }*/
-  },
+    [findProfByIdThunk.fulfilled]: (state, action) => {
+      state.details = action.payload;
+    },
+    [findProfByNameThunk.fulfilled]: (state, action) => {
+      state.profs = action.payload
+    }
+  }
 });
 
 export default tempProfsReducer.reducer;

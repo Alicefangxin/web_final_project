@@ -13,20 +13,8 @@ const AddRating = () => {
         <>
             <div className="container mt-5">
                 <div className="fs-1">Rate: <span className="fw-bolder">{InfoArray[1].name}</span> </div>
-                <div className="fw-bolder">{InfoArray[1].department}</div>
+                <div className="fw-bolder mt-2">{InfoArray[1].department}</div>
                 <ul className="list-group mt-5">
-                    <li className="list-group-item">
-                        <div className="mt-2 fw-bolder">
-                            Select Course Code
-                        </div>
-                        <div className="mt-1 position-relative start-30 w-25">
-                            <select className="form-select start-30">
-                                <option selected>Select Courses</option>
-                                <option value="1">CS5610</option>
-                                <option value="2">CS5500</option>
-                            </select>
-                        </div>
-                    </li>
                     <li className="list-group-item">
                         <div className="mt-2 fw-bolder">
                             Rate your professor

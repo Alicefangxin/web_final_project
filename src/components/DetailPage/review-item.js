@@ -27,11 +27,6 @@ const ReviewItem = (
                     <div className="p-4 wd-bg-difficulty rounded"><h3>{review.DIFFICULTY}</h3></div>
                 </div>
                 <div className="col-10">
-                    <div className="d-flex flex-row justify-content-between">
-                        <div className="p-2 fw-bolder wd-margin-left">{review.course}</div>
-                        <div className="p-2 fw-bolder wd-bg-title rounded">{review.topic}</div>
-                        <div className="p-2 fw-bolder float-end me-1">{review.date}</div>
-                    </div>
                     <div className="mt-2 wd-margin-left">
                         Would Take Again: <span className="fw-bolder">{review.WouldTakeAgain}</span>
                     </div>

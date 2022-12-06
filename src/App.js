@@ -16,11 +16,13 @@ import searchedReducer from "./components/SearchPage/searched-reducer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnloggedHome from "./components/unlogged-home/UnloggedHome";
 import DetailComponent from "./components/DetailPage";
-import AddRating from "./components/DetailPage/add-rating";
-import SubmittedComponent from "./components/DetailPage/submitted";
+import AddRating from "./components/add-rating/add-rating";
+import SubmittedComponent from "./components/add-rating/submitted";
 import tempProfsReducers from "./components/temp-prof-for-detail/temp-prof-reducers";
 import TempProfList from "./components/DetailPage/temp-prof-list";
 import UserList from "./users";
+import TempSearch from "./components/SearchPage/temp-search";
+import reviewsReducer from "./components/reviews/reviews-reducer";
 
 const store = configureStore({
   reducer: {
@@ -28,7 +30,8 @@ const store = configureStore({
     users: usersReducer,
     professors: profReducer,
     searched: searchedReducer,
-    temp: tempProfsReducers
+    temp: tempProfsReducers,
+    reviews: reviewsReducer
   },
 });
 
@@ -52,11 +55,12 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/search" element={<SearchComponent />}/>
-              <Route path="/details" element={<DetailComponent/>}/>
+              {/*<Route path="/search" element={<SearchComponent />}/>*/}
+              <Route path="/details/:profID" element={<DetailComponent/>}/>
               <Route path="/temp" element={<TempProfList/>}/>
+              {/*<Route path="/tempsearch" element={<TempSearch/>}/>*/}
               <Route path="/users" element={<UserList/>}/>
-              <Route path="/details/addrating" element={<AddRating/>}/>
+              <Route path="/addrating" element={<AddRating/>}/>
               <Route path="/submitted" element={<SubmittedComponent/>}/>
               <Route path="/hello" element={<HelloWorld />} />
             </Route>

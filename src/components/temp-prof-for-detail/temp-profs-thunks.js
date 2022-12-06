@@ -1,15 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import * as service from "./temp-profs-service";
-import { findAllProfs } from "./temp-profs-service";
+import {findAllProfs, findProfById, findProfByName} from "./temp-profs-service";
 
 export const findAllProfsThunk = createAsyncThunk(
   "findAllProfs",
-  async () => await findAllProfs()
+  () => findAllProfs()
 );
 
 export const findProfByIdThunk = createAsyncThunk(
   "findProfById",
-  async (pid) => {
-    return await service.findProfById(pid);
-  }
+  (profID) => findProfById(profID)
+);
+
+export const findProfByNameThunk = createAsyncThunk(
+    "findProfByName",
+    (profName) => findProfByName(profName)
 );
