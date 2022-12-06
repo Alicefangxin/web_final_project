@@ -5,6 +5,7 @@ import {
   loginThunk,
   registerThunk,
   loadSingleUserThunk,
+  updateProfileThunk,
 } from "./users-thunks";
 
 const usersReducer = createSlice({
@@ -50,6 +51,9 @@ const usersReducer = createSlice({
     [profileThunk.rejected]: (state, action) => {
       state.error = action.payload;
       state.currentUser = null;
+    },
+    [updateProfileThunk.fulfilled]: (state, action) => {
+      state.currentUser = action.payload;
     },
   },
 });

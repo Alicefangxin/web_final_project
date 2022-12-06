@@ -4,44 +4,44 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const ProfileAccountComponent = () => {
-  const profile = useSelector((state) => state.profile);
+  const {currentUser} = useSelector((state) => state.users);
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = `edit-profile`;
+    let path = `edit-profile-account`;
     navigate(path);
   };
 
   return (
     <>
       <div
-        class="tab-pane fade show active"
+        className="tab-pane fade show active"
         id="account"
         role="tabpanel"
         aria-labelledby="account-tab"
       >
-        <div class="col-md-12">
+        <div className="col-md-12">
           <button
             type="button"
-            class="btn btn-light float-end fw-bold rouded-pill"
+            className="btn btn-light float-end fw-bold rouded-pill"
             onClick={routeChange}
           >
             Edit Account
           </button>
         </div>
-        <div class="row">
-          <div class="col-md-6">
+        <div className="row">
+          <div className="col-md-6">
             <label>Email</label>
           </div>
-          <div class="col-md-6">
-            <p>{profile.email}</p>
+          <div className="col-md-6">
+          {currentUser && <p>{currentUser.email}</p>}
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
+        <div className="row">
+          <div className="col-md-6">
             <label>Password</label>
           </div>
-          <div class="col-md-6">
-            <p>{profile.password}</p>
+          <div className="col-md-6">
+          {currentUser && <p>{currentUser.password}</p>}
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ const ProfileRatingsComponent = () => {
  return(
    <>
         <div
-            class="tab-pane fade show active"
+            className="tab-pane fade show active"
             id="ratings"
             role="tabpanel"
             aria-labelledby="ratings-tab"
