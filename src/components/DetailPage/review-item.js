@@ -32,21 +32,14 @@ const ReviewItem = (
                     </div>
                     { currentUser &&
                         <Link to="/profile">
-                            <div
-                                onClick={() => <ProfileAccountComponent/>}
-                                className="mt-5 wd-margin-left fw-bolder">
+                            <div onClick={() => <ProfileAccountComponent/>} className="mt-5 wd-margin-left fw-bolder">
                                 @{review.username}
-                            </div>
-                            <div className="mt-2 wd-margin-left">
-                                {review.review}
                             </div>
                         </Link>
                     }
-                    { !currentUser &&
                         <div className="mt-5 wd-margin-left">
                             {review.review}
                         </div>
-                    }
 
                 </div>
             </div>

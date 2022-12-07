@@ -6,14 +6,19 @@ import {useDispatch, useSelector} from "react-redux";
 import {findProfByIdThunk} from "../temp-prof-for-detail/temp-profs-thunks";
 import {Link} from "react-router-dom";
 import AddRating from "../add-rating/add-rating";
-import {createReviewThunk} from "../reviews/reviews-thunks";
+import {createReviewThunk} from "../../reviews/reviews-thunks";
+import {userSavesProfThunk} from "../../saves/saves-thunks";
 
 const DetailComponent = () => {
     const {profID} = useParams()
     const[review, setReview] = useState("")
     const {reviews} = useSelector((state) => state.reviews)
     const {details} = useSelector((state) => state.temp)
-    const {currentUser} = useSelector((state) => state.users)
+    const { currentUser } = useSelector((state) => state.users);
+    const username = localStorage.getItem("username")
+    console.log(username)
+    const futureSave = {username, profID}
+    console.log(futureSave)
     console.log(currentUser)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -32,7 +37,11 @@ const DetailComponent = () => {
                     <div className="col">
                         <div className="fs-1 fw-bolder">{details.rating} <span className="fs-5 fw-normal text-secondary"> / 5</span> </div>
                         <div className="fw-bolder">Overall Quality Based on {details.numOfRatings} ratings</div>
-                        <div className="mt-3 wd-profname">{details.name} <span><i className="bi bi-bookmark text-secondary fw-bolder fs-4 ms-2"></i></span></div>
+                        <div className="mt-3 wd-profname">{details.name}
+                            <span><i
+                                onClick={() => {
+                                    dispatch(userSavesProfThunk(futureSave))
+                                }} className="bi bi-bookmark text-secondary fw-bolder fs-4 ms-2"></i></span></div>
                         <div>Professor in the <span className="fw-bolder">{details.department} department</span> at <span className="fw-bolder"><Link to="https://www.northeastern.edu/" className="text-dark">Northeastern University</Link></span></div>
                         <div className="d-flex flex-row bd-highlight">
                             <div className="p-2 bd-highlight border-2 border-end border-dark">
@@ -90,7 +99,7 @@ const DetailComponent = () => {
                 <hr className="fw-bolder"/>
             </div>
             {
-                currentUser &&
+                (currentUser.userType === "STUDENT") &&
                 <ul className="list-group">
                     <li className="list-group-item">
                         <div className="mt-2 fw-bolder">

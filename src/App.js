@@ -3,7 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
-import profileReducer from "./components/ProfilePage/profile-reducer";
+// import profileReducer from "./components/ProfilePage/profile-reducer";
 import profReducer from "./professors/professors-reducer";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
@@ -22,16 +22,18 @@ import tempProfsReducers from "./components/temp-prof-for-detail/temp-prof-reduc
 import TempProfList from "./components/DetailPage/temp-prof-list";
 import UserList from "./users";
 import TempSearch from "./components/SearchPage/temp-search";
-import reviewsReducer from "./components/reviews/reviews-reducer";
+import reviewsReducer from "./reviews/reviews-reducer";
+import savesReducer from "./saves/saves-reducer";
 
 const store = configureStore({
   reducer: {
-    profile: profileReducer,
+    // profile: profileReducer,
     users: usersReducer,
     professors: profReducer,
     searched: searchedReducer,
     temp: tempProfsReducers,
-    reviews: reviewsReducer
+    reviews: reviewsReducer,
+    saves: savesReducer
   },
 });
 
