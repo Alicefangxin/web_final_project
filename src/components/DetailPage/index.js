@@ -6,16 +6,18 @@ import {useDispatch, useSelector} from "react-redux";
 import {findProfByIdThunk} from "../temp-prof-for-detail/temp-profs-thunks";
 import {Link} from "react-router-dom";
 import {createReviewThunk, findReviewsByProfThunk} from "../../reviews/reviews-thunks";
-import {userSavesProfThunk} from "../../saves/saves-thunks";
+import {userSavesProfThunk, userUnsavesProfThunk} from "../../saves/saves-thunks";
 import ProfileAccountComponent from "../ProfilePage/profileAccount";
 
 const DetailComponent = () => {
     const {profID} = useParams()
+    const username = localStorage.getItem("username")
     const {reviews} = useSelector((state) => state.reviews)
     const {details} = useSelector((state) => state.temp)
+    const {saves} = useSelector((state) => state.saves)
     const { currentUser } = useSelector((state) => state.users);
-    const username = localStorage.getItem("username")
     // console.log(username)
+    const [saved, setSaved] = useState(saves.find(o => o.user === username))
     const futureSave = {username, profID}
     const initialReview = {
         profID: profID,
@@ -27,7 +29,7 @@ const DetailComponent = () => {
     }
     const [review, setReview] = useState(initialReview)
     const [disable, setDisable] = useState(false)
-    console.log(initialReview)
+    // console.log(initialReview)
     // console.log(futureSave)
     // console.log(currentUser)
     const dispatch = useDispatch()
@@ -37,6 +39,7 @@ const DetailComponent = () => {
     }, [])
     // console.log(review)
     // console.log(reviews)
+    console.log(saves)
     return(
         <>
             <div className="container mt-5">
@@ -45,10 +48,22 @@ const DetailComponent = () => {
                         <div className="fs-1 fw-bolder">{details.rating} <span className="fs-5 fw-normal text-secondary"> / 5</span> </div>
                         <div className="fw-bolder">Overall Quality Based on {details.numOfRatings} ratings</div>
                         <div className="mt-3 wd-profname">{details.name}
-                            <span><i
-                                onClick={() => {
-                                    dispatch(userSavesProfThunk(futureSave))
-                                }} className="bi bi-bookmark text-secondary fw-bolder fs-4 ms-2"></i></span></div>
+                            {
+                                (currentUser.userType === "STUDENT") &&
+                                <span>
+                                    {!saved &&
+                                        <i onClick={() => {
+                                        dispatch(userSavesProfThunk(futureSave))
+                                        setSaved(true)
+                                    }} className="bi bi-bookmark text-secondary fw-bolder fs-4 ms-2"></i>}
+                                    {saved &&
+                                        <i onClick={() => {
+                                            dispatch(userUnsavesProfThunk(futureSave))
+                                            setSaved(false)
+                                        }} className="bi bi-bookmark-fill text-secondary fw-bolder fs-4 ms-2"></i>}
+                                </span>
+                            }
+                        </div>
                         <div>Professor in the <span className="fw-bolder">{details.department} department</span> at <span className="fw-bolder"><Link to="https://www.northeastern.edu/" className="text-dark">Northeastern University</Link></span></div>
                         <div className="d-flex flex-row bd-highlight">
                             <div className="p-2 bd-highlight border-2 border-end border-dark">

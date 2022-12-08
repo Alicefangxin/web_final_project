@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {userSavesProfThunk} from "./saves-thunks";
+import {findUsersWhoSavedProfThunk, userSavesProfThunk, userUnsavesProfThunk} from "./saves-thunks";
 
 const initialState = {
     saves: [],
@@ -12,6 +12,12 @@ const savesReducer = createSlice({
     extraReducers: {
         [userSavesProfThunk.fulfilled]: (state, action) => {
             state.saves.push(action.payload)
+        },
+        [findUsersWhoSavedProfThunk.fulfilled]: (state, action) => {
+            state.saves = action.payload
+        },
+        [userUnsavesProfThunk.fulfilled]: (state, {payload}) => {
+            state.saves = state.saves.filter(s => s.user !== payload.username && s.prof !== payload.profID)
         }
     }
 })
