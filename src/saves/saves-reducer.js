@@ -17,7 +17,7 @@ const savesReducer = createSlice({
             state.saves = action.payload
         },
         [userUnsavesProfThunk.fulfilled]: (state, {payload}) => {
-            state.saves = state.saves.filter(s => s.user !== payload.username && s.prof !== payload.profID)
+            state.saves = state.saves.filter(s => s.user !== payload.username && s.profID !== payload.profID)
         }
     }
 })

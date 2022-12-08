@@ -17,7 +17,7 @@ const DetailComponent = () => {
     const {saves} = useSelector((state) => state.saves)
     const { currentUser } = useSelector((state) => state.users);
     // console.log(username)
-    const [saved, setSaved] = useState(saves.find(o => o.user === username))
+    const [saved, setSaved] = useState(saves.find(o => o.user === username && o.profID === profID))
     const futureSave = {username, profID}
     const initialReview = {
         profID: profID,
