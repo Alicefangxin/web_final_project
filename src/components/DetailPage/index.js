@@ -5,31 +5,38 @@ import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {findProfByIdThunk} from "../temp-prof-for-detail/temp-profs-thunks";
 import {Link} from "react-router-dom";
-import AddRating from "../add-rating/add-rating";
-import {createReviewThunk} from "../../reviews/reviews-thunks";
+import {createReviewThunk, findReviewsByProfThunk} from "../../reviews/reviews-thunks";
 import {userSavesProfThunk} from "../../saves/saves-thunks";
+import ProfileAccountComponent from "../ProfilePage/profileAccount";
 
 const DetailComponent = () => {
     const {profID} = useParams()
-    const[review, setReview] = useState("")
     const {reviews} = useSelector((state) => state.reviews)
     const {details} = useSelector((state) => state.temp)
     const { currentUser } = useSelector((state) => state.users);
     const username = localStorage.getItem("username")
-    console.log(username)
+    // console.log(username)
     const futureSave = {username, profID}
-    console.log(futureSave)
-    console.log(currentUser)
+    const initialReview = {
+        profID: profID,
+        author: username,
+        QUALITY: "",
+        DIFFICULTY: "",
+        WouldTakeAgain: "",
+        content: ""
+    }
+    const [review, setReview] = useState(initialReview)
+    const [disable, setDisable] = useState(false)
+    console.log(initialReview)
+    // console.log(futureSave)
+    // console.log(currentUser)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findProfByIdThunk(profID))
-        // dispatch(findReviewByProfThunk(profID))
+        dispatch(findReviewsByProfThunk(profID))
     }, [])
-    const handlePostReviewBtn = () => {
-        dispatch(createReviewThunk({
-            review
-        }))
-    }
+    // console.log(review)
+    // console.log(reviews)
     return(
         <>
             <div className="container mt-5">
@@ -103,6 +110,36 @@ const DetailComponent = () => {
                 <ul className="list-group">
                     <li className="list-group-item">
                         <div className="mt-2 fw-bolder">
+                            Rate your professor (1.0: Awful; 2.0: OK; 3.0: Good; 4.0: Great; 5.0: Awesome)
+                        </div>
+                        <input onChange={(e) => setReview({
+                            ...review,
+                            QUALITY: e.target.value
+                        })} value={review.QUALITY}
+                               className="mt-1 form-control w-75"/>
+                    </li>
+                    <li className="list-group-item">
+                        <div className="mt-2 fw-bolder">
+                            How difficult was this professor? (1.0: Very Easy; 2.0: Easy; 3.0: Average; 4.0: Difficult; 5.0:Very Difficult)
+                        </div>
+                        <input onChange={(e) => setReview({
+                            ...review,
+                            DIFFICULTY: e.target.value
+                        })} value={review.DIFFICULTY}
+                               className="mt-1 form-control w-75"/>
+                    </li>
+                    <li className="list-group-item">
+                        <div className="mt-2 fw-bolder">
+                            Would you take this professor again? Yes / No
+                        </div>
+                        <input onChange={(e) => setReview({
+                            ...review,
+                            WouldTakeAgain: e.target.value
+                        })} value={review.WouldTakeAgain}
+                            className="mt-1 form-control w-75"/>
+                    </li>
+                    <li className="list-group-item">
+                        <div className="mt-2 fw-bolder">
                             Write a Review
                         </div>
                         <div className="mt-2">
@@ -119,16 +156,51 @@ const DetailComponent = () => {
                             </ul>
                         </div>
                         <textarea
-                            onChange={(e) => setReview(e.target.value)}
+                            onChange={(e) => setReview({
+                                ...review,
+                                content: e.target.value
+                            })}
                             className="form-control mt-3 rows=5"></textarea>
-                        <button onClick={handlePostReviewBtn}
+                        <button disabled={disable} onClick={() => {
+                            dispatch(createReviewThunk(review))
+                            setDisable(true)
+                        }}
                                 className="mt-3 btn btn-primary rounded-pill fw-bolder float-end">
                             Rate Professor {details.name}</button>
                     </li>
                 </ul>
             }
-
-            <ReviewList/>
+            <ul className="list-group">
+                {
+                    reviews.map((review) =>
+                        <li key={review._id} className="list-group-item bg-light mt-3 border-0 wd-review">
+                            <div className="row m-3">
+                                <div className="col-2 flex-column">
+                                    <div className="wd-quality-font ms-2">QUALITY</div>
+                                    <div className="p-4 wd-bg-quality rounded"><h3>{review.QUALITY}</h3></div>
+                                    <div className="wd-difficulty-font">DIFFICULTY</div>
+                                    <div className="p-4 wd-bg-difficulty rounded"><h3>{review.DIFFICULTY}</h3></div>
+                                </div>
+                                <div className="col-10">
+                                    <div className="mt-2 wd-margin-left">
+                                        Would Take Again: <span className="fw-bolder">{review.WouldTakeAgain}</span>
+                                    </div>
+                                    { currentUser &&
+                                        <Link to="/profile">
+                                            <div onClick={() => <ProfileAccountComponent/>} className="mt-5 wd-margin-left fw-bolder">
+                                                @{review.author}
+                                            </div>
+                                        </Link>
+                                    }
+                                    <div className="mt-5 wd-margin-left">
+                                        {review.content}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    )
+                }
+            </ul>
         </>
     )
 }
