@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
-import ReviewList from "./review-list";
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {findProfByIdThunk} from "../../profs/prof-thunks";
 import {Link} from "react-router-dom";
 import {createReviewThunk, findReviewsByProfThunk} from "../../reviews/reviews-thunks";
-import {userSavesProfThunk, userUnsavesProfThunk} from "../../saves/saves-thunks";
+import {findUsersWhoSavedProfThunk, userSavesProfThunk, userUnsavesProfThunk} from "../../saves/saves-thunks";
 import ProfileAccountComponent from "../ProfilePage/profileAccount";
 import Footer from "../footer/Footer";
 
@@ -18,7 +17,6 @@ const DetailComponent = () => {
     const {saves} = useSelector((state) => state.saves)
     const { currentUser } = useSelector((state) => state.users);
     // console.log(username)
-    const [saved, setSaved] = useState(saves.find(o => o.user === username && o.profID === profID))
     const futureSave = {username, profID}
     const initialReview = {
         profID: profID,
@@ -37,6 +35,7 @@ const DetailComponent = () => {
     useEffect(() => {
         dispatch(findProfByIdThunk(profID))
         dispatch(findReviewsByProfThunk(profID))
+        dispatch(findUsersWhoSavedProfThunk(profID))
     },[])
     // console.log(review)
     console.log(reviews)
@@ -52,15 +51,13 @@ const DetailComponent = () => {
                             {
                                 (currentUser.userType === "STUDENT") &&
                                 <span>
-                                    {!saved &&
+                                    {!saves.some(s => s.user === username) &&
                                         <i onClick={() => {
-                                        dispatch(userSavesProfThunk(futureSave))
-                                        setSaved(true)
+                                        dispatch(userSavesProfThunk(futureSave)) //setSaved(true)
                                     }} className="bi bi-bookmark text-secondary fw-bolder fs-4 ms-2"></i>}
-                                    {saved &&
+                                    {saves.some(s => s.user === username) &&
                                         <i onClick={() => {
-                                            dispatch(userUnsavesProfThunk(futureSave))
-                                            setSaved(false)
+                                            dispatch(userUnsavesProfThunk(futureSave)) //setSaved(false)
                                         }} className="bi bi-bookmark-fill text-secondary fw-bolder fs-4 ms-2"></i>}
                                 </span>
                             }
@@ -78,7 +75,7 @@ const DetailComponent = () => {
                         </div>
                         <div className="mt-2 d-flex flex-row bd-highlight">
                             <div className="p-2 bd-highlight border-1 border-end border-dark">
-                                <Link to="#" className="text-dark">I'm Professor {details.name}</Link>
+                                <Link to="/login" className="text-dark">I'm Professor {details.name}</Link>
                             </div>
                             <div className="p-2 bd-highlight">
                                 <Link to="#" className="text-dark">Submit a correction</Link>
