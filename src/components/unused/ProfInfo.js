@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import InfoArray from "../SearchPage/profInfos.json";
 import {Link} from "react-router-dom";
-import AddRating from "../add-rating/add-rating";
+import AddRating from "./add-rating/add-rating";
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {findProfByIdThunk} from "../temp-prof-for-detail/temp-profs-thunks";

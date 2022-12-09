@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import InfoArray from "../SearchPage/profInfos.json";
+import InfoArray from "../../SearchPage/profInfos.json";
 import {Link} from "react-router-dom";
 import SubmittedComponent from "./submitted";
 const AddRating = () => {

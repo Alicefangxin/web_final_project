@@ -3,17 +3,18 @@ import "./index.css";
 import ReviewList from "./review-list";
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
-import {findProfByIdThunk} from "../temp-prof-for-detail/temp-profs-thunks";
+import {findProfByIdThunk} from "../../profs/prof-thunks";
 import {Link} from "react-router-dom";
 import {createReviewThunk, findReviewsByProfThunk} from "../../reviews/reviews-thunks";
 import {userSavesProfThunk, userUnsavesProfThunk} from "../../saves/saves-thunks";
 import ProfileAccountComponent from "../ProfilePage/profileAccount";
+import Footer from "../footer/Footer";
 
 const DetailComponent = () => {
     const {profID} = useParams()
     const username = localStorage.getItem("username")
     const {reviews} = useSelector((state) => state.reviews)
-    const {details} = useSelector((state) => state.temp)
+    const {details} = useSelector((state) => state.profs)
     const {saves} = useSelector((state) => state.saves)
     const { currentUser } = useSelector((state) => state.users);
     // console.log(username)
@@ -31,14 +32,14 @@ const DetailComponent = () => {
     const [disable, setDisable] = useState(false)
     // console.log(initialReview)
     // console.log(futureSave)
-    // console.log(currentUser)
+    console.log(currentUser)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findProfByIdThunk(profID))
         dispatch(findReviewsByProfThunk(profID))
-    }, [])
+    },[])
     // console.log(review)
-    // console.log(reviews)
+    console.log(reviews)
     console.log(saves)
     return(
         <>
@@ -216,6 +217,9 @@ const DetailComponent = () => {
                     )
                 }
             </ul>
+            <div className="mt-5">
+                <Footer/>
+            </div>
         </>
     )
 }

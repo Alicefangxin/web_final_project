@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
-import * as service from "./prof-service"
+import * as service from "./professor-service"
 
 export const getProfessorsThunk = createAsyncThunk(
     'professors/getProfessors', async () => await service.getProfessors("", "neu")

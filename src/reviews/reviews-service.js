@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const REVIEW_API = "http://localhost:4000/reviews";
-const PROF_REVIEW_API = "http://localhost:4000/tempProfs";
+const PROF_REVIEW_API = "http://localhost:4000/profs";
 const AUTHOR_REVIEW_API = "http://localhost:4000/users";
 
 

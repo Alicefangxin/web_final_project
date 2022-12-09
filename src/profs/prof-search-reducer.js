@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-    searchProfessorsThunk
-} from "../../professors/prof-thunks";
+    findProfByNameThunk
+} from "./prof-thunks";
 
-const searchedReducer = createSlice({
+const searchedProfReducer = createSlice({
     name: "searched",
     initialState: {
         searched: [],
@@ -11,15 +11,15 @@ const searchedReducer = createSlice({
     },
     reducers: {},
     extraReducers: {
-        [searchProfessorsThunk.pending]: (state) => {
+        [findProfByNameThunk.pending]: (state) => {
             state.searched = [];
             state.loading = true;
         },
-        [searchProfessorsThunk.fulfilled]: (state, {payload}) => {
+        [findProfByNameThunk.fulfilled]: (state, {payload}) => {
             state.searched = payload;
             state.loading = false;
         }
     }
 });
 
-export default searchedReducer.reducer;
+export default searchedProfReducer.reducer;

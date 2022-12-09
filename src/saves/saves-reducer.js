@@ -2,8 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {findUsersWhoSavedProfThunk, userSavesProfThunk, userUnsavesProfThunk} from "./saves-thunks";
 
 const initialState = {
-    saves: [],
-    loading: false
+    saves: []
 }
 
 const savesReducer = createSlice({

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import ResultItem from "../components/SearchPage/result-item";
-import {getProfessorsThunk} from "./prof-thunks";
+import {getProfessorsThunk} from "../professors/professor-thunks";
 
 const ProfList = () => {
     const {professors, loading} = useSelector((state) => state.professors);

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const PROFS_URL = 'http://localhost:4000/tempProfs'
+const PROFS_URL = 'http://localhost:4000/profs'
 const SAVES_URL = 'http://localhost:4000/saves'
 const USERS_URL = 'http://localhost:4000/users'
 

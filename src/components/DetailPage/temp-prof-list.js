@@ -1,12 +1,13 @@
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ResultItem from "../SearchPage/result-item";
-import { findAllProfsThunk } from "../temp-prof-for-detail/temp-profs-thunks";
+import { findAllProfsThunk } from "../../profs/prof-thunks";
 import {Link} from "react-router-dom";
 import DetailComponent from "./index";
 
 const TempProfList = () => {
-  const { profs, loading } = useSelector((state) => state.temp);
+  const { profs, loading } = useSelector((state) => state.profs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(findAllProfsThunk());
@@ -49,3 +50,4 @@ const TempProfList = () => {
 };
 
 export default TempProfList;
+

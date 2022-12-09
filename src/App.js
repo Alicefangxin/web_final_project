@@ -12,26 +12,25 @@ import Register from "./components/RegisterAndLogin/register";
 import Login from "./components/RegisterAndLogin/login";
 import LoggedHome from "./components/logged-home/LoggedHome";
 import SearchComponent from "./components/SearchPage";
-import searchedReducer from "./components/SearchPage/searched-reducer";
+import searchedReducer from "./professors/searched-reducer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnloggedHome from "./components/unlogged-home/UnloggedHome";
 import DetailComponent from "./components/DetailPage";
-import AddRating from "./components/add-rating/add-rating";
-import SubmittedComponent from "./components/add-rating/submitted";
-import tempProfsReducers from "./components/temp-prof-for-detail/temp-prof-reducers";
 import TempProfList from "./components/DetailPage/temp-prof-list";
 import UserList from "./users";
-import TempSearch from "./components/SearchPage/temp-search";
+import TempSearch from "./components/unused/temp-search";
+import profsReducer from "./profs/prof-reducers"
 import reviewsReducer from "./reviews/reviews-reducer";
 import savesReducer from "./saves/saves-reducer";
+import searchedProfReducer from "./profs/prof-search-reducer"
 
 const store = configureStore({
   reducer: {
     // profile: profileReducer,
     users: usersReducer,
     professors: profReducer,
-    searched: searchedReducer,
-    temp: tempProfsReducers,
+    searched: searchedProfReducer,
+    profs: profsReducer,
     reviews: reviewsReducer,
     saves: savesReducer
   },
@@ -57,13 +56,12 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              {/*<Route path="/search" element={<SearchComponent />}/>*/}
+              <Route path="/search" element={<SearchComponent />}/>
+              <Route path="/search/details/:profID" element={<DetailComponent/>}/>
               <Route path="/details/:profID" element={<DetailComponent/>}/>
               <Route path="/temp" element={<TempProfList/>}/>
               {/*<Route path="/tempsearch" element={<TempSearch/>}/>*/}
               <Route path="/users" element={<UserList/>}/>
-              <Route path="/addrating" element={<AddRating/>}/>
-              <Route path="/submitted" element={<SubmittedComponent/>}/>
               <Route path="/hello" element={<HelloWorld />} />
             </Route>
           </Routes>
