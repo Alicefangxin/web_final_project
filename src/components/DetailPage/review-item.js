@@ -1,15 +1,23 @@
 import React from "react";
 import "./index.css";
+import ProfileAccountComponent from "../ProfilePage/profileAccount";
+import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-
 const ReviewItem = (
     {
         review = {
+            "QUALITY": "5.0",
+            "DIFFICULTY": "3.0",
+            "course": "CS5500",
+            "WouldTakeAgain": "Yes",
+            "review": "I would recommend to take this course.",
+            "topic": "AWESOME",
+            "date": "Nov 24th, 2022"
         }
     }
 ) => {
     const {currentUser} = useSelector((state) => state.users)
-    return (
+    return(
         <li className="list-group-item bg-light mt-3 border-0 wd-review">
             <div className="row m-3">
                 <div className="col-2 flex-column">
@@ -22,9 +30,16 @@ const ReviewItem = (
                     <div className="mt-2 wd-margin-left">
                         Would Take Again: <span className="fw-bolder">{review.WouldTakeAgain}</span>
                     </div>
-                    <div className="mt-5 wd-margin-left">
-                        {review.content}
-                    </div>
+                    { currentUser &&
+                        <Link to="/profile">
+                            <div onClick={() => <ProfileAccountComponent/>} className="mt-5 wd-margin-left fw-bolder">
+                                @{review.username}
+                            </div>
+                        </Link>
+                    }
+                        <div className="mt-5 wd-margin-left">
+                            {review.review}
+                        </div>
 
                 </div>
             </div>

@@ -6,18 +6,15 @@ const reviewsReducer = createSlice({
     initialState: {
         reviews: []
     },
-    reducers: {},
     extraReducers: {
         [createReviewThunk.fulfilled]: (state, action) => {
             state.reviews.push(action.payload)
         },
         [findReviewsByProfThunk.fulfilled]: (state, action) => {
-
             state.reviews = action.payload
         },
         [findReviewsByAuthorThunk.fulfilled]: (state, action) => {
             state.reviews = action.payload
-
         }
     }
 })
