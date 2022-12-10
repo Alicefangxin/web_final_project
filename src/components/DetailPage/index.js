@@ -6,7 +6,7 @@ import {findProfByIdThunk} from "../../profs/prof-thunks";
 import {Link} from "react-router-dom";
 import {createReviewThunk, findReviewsByProfThunk} from "../../reviews/reviews-thunks";
 import {findUsersWhoSavedProfThunk, userSavesProfThunk, userUnsavesProfThunk} from "../../saves/saves-thunks";
-import ProfileAccountComponent from "../ProfilePage/profileAccount";
+import ProfileAccountComponent from "../ProfilePage/components/account/profileAccount";
 import Footer from "../footer/Footer";
 
 const DetailComponent = () => {
