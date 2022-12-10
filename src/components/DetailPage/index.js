@@ -49,7 +49,7 @@ const DetailComponent = () => {
                         <div className="fw-bolder">Overall Quality Based on {details.numOfRatings} ratings</div>
                         <div className="mt-3 wd-profname">{details.name}
                             {
-                                (currentUser.userType === "STUDENT") &&
+                                (currentUser && currentUser.userType === "STUDENT") &&
                                 <span>
                                     {!saves.some(s => s.user === username) &&
                                         <i onClick={() => {
