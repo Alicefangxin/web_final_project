@@ -119,7 +119,7 @@ const DetailComponent = () => {
                 <hr className="fw-bolder"/>
             </div>
             {
-                (currentUser.userType === "STUDENT") &&
+                (currentUser && currentUser.userType === "STUDENT") &&
                 <ul className="list-group">
                     <li className="list-group-item">
                         <div className="mt-2 fw-bolder">
