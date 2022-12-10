@@ -1,0 +1,42 @@
+.header {
+    width: 100%;
+    background: black;
+    box-shadow: 0 0 24px rgb(81 87 103 / 16%);
+}
+
+.header-content {
+    padding: 0 20px;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+    height: 80px;
+    font-weight: bolder;
+    font-size: 15px;
+    color: white;
+}
+
+.header-item {
+    padding: 5px 15px;
+    margin: 0 10px;
+}
+
+.header-item a {
+    color: #fff;
+}
+
+.login {
+    display: flex;
+}
+
+.login-item {
+    padding: 5px 15px;
+    margin: 0 10px;
+
+}
+
+.active {
+    border: 2px solid white;
+    border-radius: 20px;
+}

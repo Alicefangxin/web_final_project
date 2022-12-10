@@ -1,0 +1,28 @@
+.profile-home {
+    display: flex;
+    flex-direction: column;
+}
+
+.data, .edit {
+    box-shadow: 0 0 24px rgb(81 87 103 / 16%);
+    display: flex;
+    margin: 5% auto;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.data label {
+    font-size: 16px;
+}
+
+
+.row {
+    padding: 10px 0;
+}
+
+.row input {
+    margin: 20px 0;
+}

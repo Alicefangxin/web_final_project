@@ -1,94 +1,67 @@
 import "./profilePage.css";
-import { useSelector, useDispatch } from "react-redux";
-import React from "react";
-import { Routes, Route, useNavigate } from "react-router";
-import ProfileHomeComponent from "./profileHome";
-import ProfileAccountComponent from "./profileAccount";
-import ProfileRatingsComponent from "./profileRatings";
-import EditProfileComponent from "./EditProfile";
-import EditProfileAccountComponent from "./EditProfileAccount";
-import ProfileProfessorsComponent from "./profileProfessors";
-import Navs from "./Navs";
-import { logout } from "../../users/users-reducer";
+import React, {useEffect, useState} from "react";
+import Navs from "./components/nav/Navs";
+import CountContext from './CountContext';
+import ProfileAccountComponent from "./components/account/profileAccount";
+import ProfileHomeComponent from "./components/home/profileHome";
+import ProfileRatingsComponent from "./components/ratings/profileRatings";
+import ProfileProfessorsComponent from "./components/profileProfessors";
+import {loadSingleUserThunk} from "../../users/users-thunks";
+import {useDispatch} from "react-redux";
+import Footer from "../footer/Footer";
+
 
 const ProfilePage = () => {
-  const { currentUser } = useSelector((state) => state.users);
-  // const profile = useSelector((state) => state.profile);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const logOutBtnHandler = () => {
-    localStorage.removeItem("username");
-    sessionStorage.clear();
-    dispatch(logout());
-    navigate("login");
-  };
-
-  return (
-    <>
-      <div className="container emp-profile">
-        <form method="post">
-          <div className="row">
-            <div className="col-md-3">
-              <div className="profile-head">
-                <h4>Your Account</h4>
-                <div
-                  className="d-actions-button rounded-pill"
-                  onClick={logOutBtnHandler}
-                >
-                  Log Out
-                </div>
-              </div>
+    let [currentUser, setCurrentUser] = useState({})
+    const dispatch = useDispatch();
+    const username = window.location.hash.split("username=")[1]
+    const getProfile = async () => {
+        if (username) {
+            const data = await dispatch(loadSingleUserThunk(username));
+            setCurrentUser(data.payload)
+        }
+    }
+    useEffect(() => {
+        if (window.localStorage.getItem("userinfo") && !username) {
+            setCurrentUser(JSON.parse(window.localStorage.getItem("userinfo")))
+        } else {
+            getProfile()
+        }
+    }, [])
+    const [active, setActive] = useState("Profile")
+    return (
+        <>
+            <div className="container emp-profile">
+                <form method="post">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="profile-head">
+                                {username ? <h1>{username} Profile</h1> : currentUser &&
+                                    <h1>Hi {currentUser.username}</h1>}
+                            </div>
+                            <div className="profile-head">
+                                {currentUser && <h3> {currentUser.userType}</h3>}
+                            </div>
+                            <CountContext.Provider value={{active, setActive}}>
+                                <Navs/>
+                            </CountContext.Provider>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="tab-content profile-tab" id="myTabContent">
+                                {
+                                    active === "Profile" ? <ProfileHomeComponent/> : active === "Account" ?
+                                        <ProfileAccountComponent/> : active === "Ratings" ? <ProfileRatingsComponent/> :
+                                            <ProfileProfessorsComponent/>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div className="col-md-7">
-              <div className="profile-head">
-                {currentUser && <h5>Welcome {currentUser.username}</h5>}
-
-                {/* <h5>
-                  {profile.firstName} {profile.lastName}
-                </h5> */}
-                <h6>Student</h6>
-                <br />
-                <br />
-                <Navs active="home" />
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-3"></div>
-            <div className="col-md-7">
-              <div className="tab-content profile-tab" id="myTabContent">
-                <Routes>
-                  <Route index element={<ProfileHomeComponent />} />
-                  <Route path="/home" element={<ProfileHomeComponent />} />
-                  <Route
-                    path="/home/edit-profile"
-                    element={<EditProfileComponent />}
-                  />
-                  <Route
-                    path="/account"
-                    element={<ProfileAccountComponent />}
-                  />
-                  <Route
-                    path="/account/edit-profile-account"
-                    element={<EditProfileAccountComponent />}
-                  />
-
-                  <Route
-                    path="/ratings"
-                    element={<ProfileRatingsComponent />}
-                  />
-                  <Route
-                    path="/professors"
-                    element={<ProfileProfessorsComponent />}
-                  />
-                </Routes>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </>
-  );
+            <Footer/>
+        </>
+    );
 };
 export default ProfilePage;
