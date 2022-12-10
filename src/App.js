@@ -1,6 +1,6 @@
 import "./App.css";
 import { HashRouter, Route, Routes } from "react-router-dom";
-
+import Header from "./components/header/header";
 import HelloWorld from "./components/HelloWorld";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 // import profileReducer from "./components/ProfilePage/profile-reducer";
@@ -12,12 +12,12 @@ import Register from "./components/RegisterAndLogin/register";
 import Login from "./components/RegisterAndLogin/login";
 import LoggedHome from "./components/logged-home/LoggedHome";
 import SearchComponent from "./components/SearchPage";
+import UserList from "./users/index";
 import searchedReducer from "./professors/searched-reducer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnloggedHome from "./components/unlogged-home/UnloggedHome";
 import DetailComponent from "./components/DetailPage";
 import TempProfList from "./components/DetailPage/temp-prof-list";
-import UserList from "./users";
 import TempSearch from "./components/unused/temp-search";
 import profsReducer from "./profs/prof-reducers"
 import reviewsReducer from "./reviews/reviews-reducer";
@@ -41,6 +41,7 @@ function App() {
   return (
     <Provider store={store}>
       <HashRouter>
+        <Header/>
         <div className="container">
           <Routes path="/">
             <Route>
@@ -48,6 +49,7 @@ function App() {
               <Route path="/home" element={<LoggedHome />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/userlist" element={<UserList/>}/>
               <Route
                 path="/profile/*"
                 element={
@@ -61,7 +63,6 @@ function App() {
               <Route path="/details/:profID" element={<DetailComponent/>}/>
               <Route path="/temp" element={<TempProfList/>}/>
               {/*<Route path="/tempsearch" element={<TempSearch/>}/>*/}
-              <Route path="/users" element={<UserList/>}/>
               <Route path="/hello" element={<HelloWorld />} />
             </Route>
           </Routes>
