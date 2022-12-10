@@ -161,9 +161,9 @@ const Register = () => {
         </div>
         {currentUser && <h2>Welcome {currentUser.username}</h2>}
       </section>
-      <div className="d-login-footer">
+      {/* <div className="d-login-footer">
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 };

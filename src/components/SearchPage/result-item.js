@@ -3,19 +3,7 @@ import {Link} from "react-router-dom";
 
 const ResultItem = (
     {
-        info = {
-            "name": "Zhuoqun Cheng",
-            "department": "Computer Science",
-            "rating": "3.9",
-            "numOfRatings": "4",
-            "difficultyLevel": "3.9",
-            "againPct": "67%",
-            "numOfAwesome": "2",
-            "numOfGreat": "0",
-            "numOfGood": "1",
-            "numOfOK": "1",
-            "numOfAwful": "0"
-        }
+        info = {}
     }
 ) => {
     return (
@@ -36,8 +24,10 @@ const ResultItem = (
                     </div>
                 </div>
                 <div className="col-2">
-                    <Link to="/details" state={{info: info}}>
-                        <button className="btn btn-dark float-end">See Rating</button>
+                    <Link to={`/details/${info.profID}`}>
+                        < button onClick={() => {
+                        }} className="btn btn-dark float-end">See Rating
+                        </button>
                     </Link>
                 </div>
             </div>

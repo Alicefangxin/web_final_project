@@ -6,14 +6,10 @@
     background: #fff;
 }
 
-.profile-head h5 {
-    color: #333;
+.profile-head{
+    margin-bottom: 40px;
+    font-weight: bold;
 }
-
-.profile-head h6 {
-    color: #0062cc;
-}
-
 .profile-head .nav-tabs {
     margin-bottom: 5%;
 }

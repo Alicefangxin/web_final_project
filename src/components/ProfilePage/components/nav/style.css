@@ -1,0 +1,11 @@
+.nav-item {
+    padding: 10px 30px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #999;
+    margin: 0 10px;
+}
+.nav-active {
+    border-bottom: 3px solid #000;
+    color: #000;
+}
