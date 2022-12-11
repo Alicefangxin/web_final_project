@@ -10,34 +10,6 @@ const UnloggedHome = () => {
     const {currentUser} = useSelector((state) => state.users);
     return (
         <>
-            <div className="pt-2">
-                <h1>Northeastern University - R8MyProfessor</h1>
-            </div>
-            <div className="d-flex flex-row-reverse pt-1">
-                <div className="mb-4">
-                    {!currentUser && (
-                        <Link to="/login">
-                            <button className="d-actions-button rounded-pill">Log In</button>
-                        </Link>
-                    )}
-                    {currentUser && (
-                        <Link to="/profile">
-                            <button className="d-actions-button rounded-pill">Profile</button>
-                        </Link>
-                    )}
-                </div>
-            </div>
-
-            <div className="mt-5 p-5">
-                <div className="input-group mb-3">
-                    <Link to="/search">
-                        <button
-                            className="ms-3 btn btn-outline-secondary rounded-pill border border-5 border-secondary border-opacity-25"
-                            type="button" id="button-addon2">Search
-                        </button>
-                    </Link>
-                </div>
-            </div>
             <div className="mt-6 p-3 bg-white bg-opacity-10 border border-dark border-bottom-0 border-end-0 border-start-0">
                 <div className="pt-2">
                     <h2>Welcome to R8MyProfessor, Huskies!</h2>

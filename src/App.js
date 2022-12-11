@@ -13,7 +13,7 @@ import Login from "./components/RegisterAndLogin/login";
 import LoggedHome from "./components/logged-home/LoggedHome";
 import SearchComponent from "./components/SearchPage";
 import UserList from "./users/index";
-// import searchedReducer from "./professors/searched-reducer";
+import searchedReducer from "./professors/searched-reducer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnloggedHome from "./components/unlogged-home/UnloggedHome";
 import DetailComponent from "./components/DetailPage";
@@ -22,14 +22,13 @@ import TempProfList from "./components/DetailPage/temp-prof-list";
 import profsReducer from "./profs/prof-reducers"
 import reviewsReducer from "./reviews/reviews-reducer";
 import savesReducer from "./saves/saves-reducer";
-import searchedProfReducer from "./profs/prof-search-reducer"
 
 const store = configureStore({
   reducer: {
     // profile: profileReducer,
     users: usersReducer,
     professors: profReducer,
-    searched: searchedProfReducer,
+    searched: searchedReducer,
     profs: profsReducer,
     reviews: reviewsReducer,
     saves: savesReducer

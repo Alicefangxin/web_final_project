@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
     searchProfessorsThunk
-} from "./professor-thunks";
+} from "./prof-thunks";
 
 const searchedReducer = createSlice({
     name: "searched",
