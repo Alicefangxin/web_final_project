@@ -29,7 +29,7 @@ const ResultList = () => {
     }
     useEffect(() => {
         findProfessors()
-    }, [])
+    })
     return (
         <ul className="list-group">
             {

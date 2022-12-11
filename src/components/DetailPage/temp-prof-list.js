@@ -1,7 +1,6 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ResultItem from "../SearchPage/result-item";
 import { findAllProfsThunk } from "../../profs/prof-thunks";
 import {Link} from "react-router-dom";
 import DetailComponent from "./index";
@@ -11,7 +10,7 @@ const TempProfList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(findAllProfsThunk());
-  }, []);
+  });
   return (
     <>
       <div className="container mt-5">
