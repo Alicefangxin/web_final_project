@@ -72,13 +72,8 @@ const DetailComponent = () => {
                                 <div>Level of Difficulty</div>
                             </div>
                         </div>
-                        <div className="mt-2 d-flex flex-row bd-highlight">
-                            <div className="p-2 bd-highlight border-1 border-end border-dark">
-                                <Link to="/login" className="text-dark">I'm Professor {details.name}</Link>
-                            </div>
-                            <div className="p-2 bd-highlight">
-                                <Link to="#" className="text-dark">Submit a correction</Link>
-                            </div>
+                        <div className="p-2 bd-highlight border-1 border-end border-dark">
+                            <Link to="/login" className="text-dark">I'm Professor {details.name}</Link>
                         </div>
                     </div>
                     <div className="col">
@@ -114,7 +109,7 @@ const DetailComponent = () => {
                         </table>
                     </div>
                 </div>
-                <div className="mt-4 fw-bolder wd-margin-center">{details.numOfRatings} Student Ratings</div>
+                <div className="mt-4 fw-bolder wd-margin-center">Recent reviews</div>
                 <hr className="fw-bolder"/>
             </div>
             {
