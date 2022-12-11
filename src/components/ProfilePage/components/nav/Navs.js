@@ -45,7 +45,7 @@ const Navs = () => {
                 <li className={active === "Ratings" ? "nav-item nav-active" : "nav-item"} onClick={() => {
                     clickItem("Ratings")
                 }}>
-                    Your Ratings
+                    Ratings
                 </li>
             }
             {currentUser.userType !== "STUDENT" ? "" :

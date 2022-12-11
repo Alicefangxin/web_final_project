@@ -36,7 +36,7 @@ const ProfilePage = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="profile-head">
-                                {username ? <h1>{username} Profile</h1> : currentUser &&
+                                {username ? <h1>{username}'s Profile</h1> : currentUser &&
                                     <h1>Hi {currentUser.username}</h1>}
                             </div>
                             <div className="profile-head">
