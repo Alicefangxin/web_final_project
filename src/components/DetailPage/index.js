@@ -193,7 +193,7 @@ const DetailComponent = () => {
                                         Would Take Again: <span className="fw-bolder">{review.WouldTakeAgain}</span>
                                     </div>
                                     { currentUser &&
-                                        <Link to="/profile">
+                                        <Link to={`/profile?username=${review.author}`}>
                                             <div onClick={() => <ProfileAccountComponent/>} className="mt-5 wd-margin-left fw-bolder">
                                                 @{review.author}
                                             </div>
