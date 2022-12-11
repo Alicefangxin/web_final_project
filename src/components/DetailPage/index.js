@@ -13,7 +13,7 @@ const DetailComponent = () => {
     const {profID} = useParams()
     const username = localStorage.getItem("username")
     const {reviews} = useSelector((state) => state.reviews)
-    const {details} = useSelector((state) => state.profs)
+    let {details} = useSelector((state) => state.profs)
     const {saves} = useSelector((state) => state.saves)
     const { currentUser } = useSelector((state) => state.users);
     const futureSave = {username, profID}

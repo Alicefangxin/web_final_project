@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../../profilePage.css";
-import DetailComponent from "../../../DetailPage";
+import DetailComponent from "../../../DetailPage/review-list";
 
 const ProfileRatingsComponent = () => {
  return(

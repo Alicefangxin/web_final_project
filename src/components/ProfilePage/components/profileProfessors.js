@@ -1,6 +1,6 @@
 import React from "react";
 import "../profilePage.css";
-import ResultList from "../../SearchPage/result-list.js";
+import ResultList from "../components/result-list";
 
 const ProfileProfessorsComponent = () => {
  return(

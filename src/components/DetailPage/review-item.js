@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import ProfileAccountComponent from "../ProfilePage/profileAccount";
+import ProfileAccountComponent from "../ProfilePage/components/account/profileAccount";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 const ReviewItem = (
@@ -33,12 +33,12 @@ const ReviewItem = (
                     { currentUser &&
                         <Link to="/profile">
                             <div onClick={() => <ProfileAccountComponent/>} className="mt-5 wd-margin-left fw-bolder">
-                                @{review.username}
+                                @{review.author}
                             </div>
                         </Link>
                     }
                         <div className="mt-5 wd-margin-left">
-                            {review.review}
+                            {review.content}
                         </div>
 
                 </div>
