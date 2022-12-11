@@ -13,19 +13,20 @@ const Navs = () => {
     const clickItem = (name) => {
         setActive(name)
     }
-    const getProfile = async () => {
-        if (username) {
-            const data = await dispatch(loadSingleUserThunk(username));
-            setCurrentUser({...data.payload})
-        }
-    }
+
     useEffect(() => {
+        const getProfile = async () => {
+            if (username) {
+                const data = await dispatch(loadSingleUserThunk(username));
+                setCurrentUser({...data.payload})
+            }
+        }
         if (window.localStorage.getItem("userinfo") && !username) {
             setCurrentUser(JSON.parse(window.localStorage.getItem("userinfo")))
         } else {
             getProfile()
         }
-    }, [setCurrentUser, getProfile, username])
+    }, [dispatch, setCurrentUser, username])
     return (
         <ul className="nav nav-tabs">
             <li className={active === "Profile" ? "nav-item nav-active" : "nav-item"} onClick={() => {
