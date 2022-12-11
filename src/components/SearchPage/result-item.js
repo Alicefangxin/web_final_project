@@ -37,7 +37,7 @@ const ResultItem = (
                     </div>
                 </div>
                 <div className="col-2">
-                    <Link to="/details" state={{info: info}}>
+                    <Link to={`/details/${info._id}`} state={{info: info}}>
                         <button className="btn btn-dark float-end">See Rating</button>
                     </Link>
                 </div>

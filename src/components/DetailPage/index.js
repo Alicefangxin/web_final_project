@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
-import {useParams} from "react-router";
+import {useLocation} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {findProfByIdThunk} from "../../profs/prof-thunks";
 import {Link} from "react-router-dom";
@@ -10,10 +10,12 @@ import ProfileAccountComponent from "../ProfilePage/components/account/profileAc
 import Footer from "../footer/Footer";
 
 const DetailComponent = () => {
-    const {profID} = useParams()
+    const location = useLocation();
+    const details = location.state.info;
+    const profID = details._id;
     const username = localStorage.getItem("username")
     const {reviews} = useSelector((state) => state.reviews)
-    let {details} = useSelector((state) => state.profs)
+    // let {details} = useSelector((state) => state.profs)
     const {saves} = useSelector((state) => state.saves)
     const { currentUser } = useSelector((state) => state.users);
     const futureSave = {username, profID}
@@ -34,7 +36,7 @@ const DetailComponent = () => {
         dispatch(findProfByIdThunk(profID))
         dispatch(findReviewsByProfThunk(profID))
         dispatch(findUsersWhoSavedProfThunk(profID))
-    })
+    }, [dispatch, profID])
     console.log(reviews)
     console.log(saves)
     return(
