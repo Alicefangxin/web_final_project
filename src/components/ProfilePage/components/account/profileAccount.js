@@ -10,15 +10,16 @@ const ProfileAccountComponent = () => {
 
     useSelector((state) => state);
 
-    const getProfile = async () => {
-        if (username) {
-            const data = await dispatch(loadSingleUserThunk(username));
-            setCurrentUser(data.payload)
-            setNewProfile(data.payload)
 
-        }
-    }
     useEffect(() => {
+        const getProfile = async () => {
+            if (username) {
+                const data = await dispatch(loadSingleUserThunk(username));
+                setCurrentUser(data.payload)
+                setNewProfile(data.payload)
+
+            }
+        }
         if (window.localStorage.getItem("userinfo") && !username) {
             setCurrentUser(JSON.parse(window.localStorage.getItem("userinfo")))
             setNewProfile(JSON.parse(window.localStorage.getItem("userinfo")))
@@ -26,7 +27,7 @@ const ProfileAccountComponent = () => {
         } else {
             getProfile()
         }
-    })
+    }, [setCurrentUser, username])
     const [email, setEmail] = useState(currentUser.email);
     const [password, setPassword] = useState(currentUser.password);
     const [status, setStatus] = useState(true)

@@ -22,21 +22,22 @@ const ProfileHomeComponent = () => {
 
     const [status, setStatus] = useState(true)
     const dispatch = useDispatch();
-    const getProfile = async () => {
-        if (username) {
-            const data = await dispatch(loadSingleUserThunk(username));
-            setCurrentUser(data.payload)
-            setNewProfile(data.payload)
-        }
-    }
+
     useEffect(() => {
+        const getProfile = async () => {
+            if (username) {
+                const data = await dispatch(loadSingleUserThunk(username));
+                setCurrentUser(data.payload)
+                setNewProfile(data.payload)
+            }
+        }
         if (window.localStorage.getItem("userinfo") && !username) {
             setCurrentUser(JSON.parse(window.localStorage.getItem("userinfo")))
             setNewProfile(JSON.parse(window.localStorage.getItem("userinfo")))
         } else {
             getProfile()
         }
-    }, [setCurrentUser, getProfile, username])
+    }, [setCurrentUser, username])
 
 
     const profileSaveHandler = () => {

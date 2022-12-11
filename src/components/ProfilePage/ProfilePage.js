@@ -15,19 +15,20 @@ const ProfilePage = () => {
     let [currentUser, setCurrentUser] = useState({})
     const dispatch = useDispatch();
     const username = window.location.hash.split("username=")[1]
-    const getProfile = async () => {
-        if (username) {
-            const data = await dispatch(loadSingleUserThunk(username));
-            setCurrentUser(data.payload)
-        }
-    }
+
     useEffect(() => {
+        const getProfile = async () => {
+            if (username) {
+                const data = await dispatch(loadSingleUserThunk(username));
+                setCurrentUser(data.payload)
+            }
+        }
         if (window.localStorage.getItem("userinfo") && !username) {
             setCurrentUser(JSON.parse(window.localStorage.getItem("userinfo")))
         } else {
             getProfile()
         }
-    }, [setCurrentUser, getProfile, username])
+    }, [setCurrentUser, username])
     const [active, setActive] = useState("Profile")
     return (
         <>

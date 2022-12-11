@@ -9,27 +9,28 @@ const ResultList = () => {
     const username = window.location.hash.split("username=")[1]
 
     const dispatch = useDispatch();
-    const findProfessors = async () => {
-        let data = null;
-        if (username) {
-            data = await dispatch(findProfsSavedByUserThunk(username))
-        } else {
-            data = await dispatch(findProfsSavedByUserThunk(JSON.parse(window.localStorage.getItem("userinfo")).username))
-        }
-        const all = await dispatch(findAllProfsThunk())
-        let arr = []
-        data.payload.forEach(item => {
-            all.payload.forEach(e => {
-                if (item.prof === e.profID) {
-                    arr.push(e)
-                }
-            })
-        })
-        setProfessors(arr)
-    }
+
     useEffect(() => {
+        const findProfessors = async () => {
+            let data;
+            if (username) {
+                data = await dispatch(findProfsSavedByUserThunk(username))
+            } else {
+                data = await dispatch(findProfsSavedByUserThunk(JSON.parse(window.localStorage.getItem("userinfo")).username))
+            }
+            const all = await dispatch(findAllProfsThunk())
+            let arr = []
+            data.payload.forEach(item => {
+                all.payload.forEach(e => {
+                    if (item.prof === e.profID) {
+                        arr.push(e)
+                    }
+                })
+            })
+            setProfessors(arr)
+        }
         findProfessors()
-    })
+    }, [dispatch, username])
     return (
         <ul className="list-group">
             {
