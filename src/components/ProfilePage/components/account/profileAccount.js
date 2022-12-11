@@ -9,7 +9,7 @@ const ProfileAccountComponent = () => {
     const username = window.location.hash.split("username=")[1]
 
     useSelector((state) => state);
-
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getProfile = async () => {
@@ -34,7 +34,7 @@ const ProfileAccountComponent = () => {
     const [newProfile, setNewProfile] = useState({
         ...currentUser,
     });
-    const dispatch = useDispatch();
+
     const profileSaveHandler = () => {
         newProfile.email = email
         newProfile.password = password
