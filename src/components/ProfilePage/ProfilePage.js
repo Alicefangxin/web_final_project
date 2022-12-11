@@ -28,7 +28,7 @@ const ProfilePage = () => {
         } else {
             getProfile()
         }
-    }, [setCurrentUser, username])
+    }, [dispatch, setCurrentUser, username])
     const [active, setActive] = useState("Profile")
     return (
         <>

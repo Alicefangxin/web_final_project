@@ -26,7 +26,7 @@ const Navs = () => {
         } else {
             getProfile()
         }
-    }, [setCurrentUser, username])
+    }, [dispatch, setCurrentUser, username])
     return (
         <ul className="nav nav-tabs">
             <li className={active === "Profile" ? "nav-item nav-active" : "nav-item"} onClick={() => {

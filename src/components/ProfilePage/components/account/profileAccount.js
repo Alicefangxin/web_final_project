@@ -27,7 +27,7 @@ const ProfileAccountComponent = () => {
         } else {
             getProfile()
         }
-    }, [setCurrentUser, username])
+    }, [dispatch, setCurrentUser, username])
     const [email, setEmail] = useState(currentUser.email);
     const [password, setPassword] = useState(currentUser.password);
     const [status, setStatus] = useState(true)

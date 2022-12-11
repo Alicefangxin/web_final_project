@@ -37,7 +37,7 @@ const ProfileHomeComponent = () => {
         } else {
             getProfile()
         }
-    }, [setCurrentUser, username])
+    }, [dispatch, setCurrentUser, username])
 
 
     const profileSaveHandler = () => {
