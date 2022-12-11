@@ -1,40 +1,26 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import ResultItem from "../../SearchPage/result-item";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {findProfsSavedByUserThunk} from "../../../saves/saves-thunks";
-import {findAllProfsThunk} from "../../temp-prof-for-detail/temp-profs-thunks";
 
 const ResultList = () => {
-    const [professors, setProfessors] = useState([])
+    const {saved_profs} = useSelector((state) => state.saved_profs);
     const username = window.location.hash.split("username=")[1]
+    console.log('username:', username);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const findProfessors = async () => {
-            let data;
-            if (username) {
-                data = await dispatch(findProfsSavedByUserThunk(username))
-            } else {
-                data = await dispatch(findProfsSavedByUserThunk(JSON.parse(window.localStorage.getItem("userinfo")).username))
-            }
-            const all = await dispatch(findAllProfsThunk())
-            let arr = []
-            data.payload.forEach(item => {
-                all.payload.forEach(e => {
-                    if (item.prof === e.profID) {
-                        arr.push(e)
-                    }
-                })
-            })
-            setProfessors(arr)
+        if (username) {
+            dispatch(findProfsSavedByUserThunk(username))
+        } else {
+            dispatch(findProfsSavedByUserThunk(JSON.parse(window.localStorage.getItem("userinfo")).username))
         }
-        findProfessors()
     }, [dispatch, username])
     return (
         <ul className="list-group">
             {
-                professors.map(info =>
+                saved_profs.map(info =>
                     <ResultItem
                         key={info._id} info={info}/>)
             }
