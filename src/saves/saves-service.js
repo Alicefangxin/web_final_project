@@ -21,5 +21,6 @@ export const findUsersWhoSavedProf = async (profID) => {
 
 export const findProfsSavedByUser = async (username) => {
     const response = await axios.get(`${USERS_URL}/${username}/saves`)
+    console.log(response.data)
     return response.data
 }
