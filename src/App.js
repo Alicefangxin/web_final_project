@@ -22,6 +22,7 @@ import TempProfList from "./components/DetailPage/temp-prof-list";
 import profsReducer from "./profs/prof-reducers"
 import reviewsReducer from "./reviews/reviews-reducer";
 import savesReducer from "./saves/saves-reducer";
+import savesProfReducer from "./saves/saves-prof-reducer";
 
 const store = configureStore({
   reducer: {
@@ -31,7 +32,8 @@ const store = configureStore({
     searched: searchedReducer,
     profs: profsReducer,
     reviews: reviewsReducer,
-    saves: savesReducer
+    saves: savesReducer,
+    saved_profs: savesProfReducer
   },
 });
 
