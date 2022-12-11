@@ -34,7 +34,7 @@ const DetailComponent = () => {
         dispatch(findProfByIdThunk(profID))
         dispatch(findReviewsByProfThunk(profID))
         dispatch(findUsersWhoSavedProfThunk(profID))
-    },[])
+    })
     console.log(reviews)
     console.log(saves)
     return(

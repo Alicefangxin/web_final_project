@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import "../../profilePage.css";
 import DetailComponent from "../../../DetailPage/review-list";
 

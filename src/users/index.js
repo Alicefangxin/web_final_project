@@ -19,7 +19,7 @@ const UserList = () => {
             findAllUsers()
         else
             navigate("/login")
-    }, []);
+    });
     const findAllUsers = async () => {
         const data = await dispatch(findAllUsersThunk());
         setUserList(data.payload)
@@ -28,7 +28,7 @@ const UserList = () => {
         setUserList(userList.filter(item => {
             return item.id !== id
         }))
-        const data = await dispatch(deleteUserThunk(id))
+        await dispatch(deleteUserThunk(id))
     }
     return (
         <>

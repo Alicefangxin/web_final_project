@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+// import {useSelector} from "react-redux";
 import "./home.css";
 import ProfList from "../../professors";
 import Footer from "../footer/Footer";
 
 const UnloggedHome = () => {
-    const {currentUser} = useSelector((state) => state.users);
+    // const {currentUser} = useSelector((state) => state.users);
     return (
         <>
             <div className="mt-6 p-3 bg-white bg-opacity-10 border border-dark border-bottom-0 border-end-0 border-start-0">

@@ -8,7 +8,7 @@ const ProfileAccountComponent = () => {
     let [currentUser, setCurrentUser] = useState({})
     const username = window.location.hash.split("username=")[1]
 
-    const s = useSelector((state) => state);
+    useSelector((state) => state);
 
     const getProfile = async () => {
         if (username) {
@@ -26,7 +26,7 @@ const ProfileAccountComponent = () => {
         } else {
             getProfile()
         }
-    }, [])
+    })
     const [email, setEmail] = useState(currentUser.email);
     const [password, setPassword] = useState(currentUser.password);
     const [status, setStatus] = useState(true)

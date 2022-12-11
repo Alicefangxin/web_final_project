@@ -7,7 +7,6 @@ import {useParams} from "react-router";
 const ReviewList = () => {
     const [reviews, setReviews] = useState([])
     const {profID} = useParams();
-    let [currentUser, setCurrentUser] = useState({})
     const username = window.location.hash.split("username=")[1]
 
     const dispatch = useDispatch();
@@ -28,7 +27,7 @@ const ReviewList = () => {
     }
     useEffect(() => {
         findReviews()
-    }, [])
+    })
     return (
         <ul className="list-group">
             {

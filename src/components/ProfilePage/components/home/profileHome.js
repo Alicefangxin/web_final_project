@@ -14,7 +14,7 @@ const ProfileHomeComponent = () => {
     const username = window.location.hash.split("username=")[1]
 
 
-    const s = useSelector((state) => state);
+    useSelector((state) => state);
     const [newProfile, setNewProfile] = useState({
         ...emptyProfile,
         ...currentUser,
@@ -36,7 +36,7 @@ const ProfileHomeComponent = () => {
         } else {
             getProfile()
         }
-    }, [])
+    }, [setCurrentUser, getProfile, username])
 
 
     const profileSaveHandler = () => {
