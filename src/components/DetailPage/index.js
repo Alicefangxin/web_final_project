@@ -16,7 +16,6 @@ const DetailComponent = () => {
     const {details} = useSelector((state) => state.profs)
     const {saves} = useSelector((state) => state.saves)
     const { currentUser } = useSelector((state) => state.users);
-    // console.log(username)
     const futureSave = {username, profID}
     const initialReview = {
         profID: profID,
@@ -30,14 +29,12 @@ const DetailComponent = () => {
     const [disable, setDisable] = useState(false)
     // console.log(initialReview)
     // console.log(futureSave)
-    console.log(currentUser)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findProfByIdThunk(profID))
         dispatch(findReviewsByProfThunk(profID))
         dispatch(findUsersWhoSavedProfThunk(profID))
     },[])
-    // console.log(review)
     console.log(reviews)
     console.log(saves)
     return(
