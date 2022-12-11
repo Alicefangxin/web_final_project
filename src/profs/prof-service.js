@@ -1,8 +1,6 @@
 import axios from "axios";
 
-const TEMP_PROF_BASE = "http://localhost:4000/tempProfs";
-
-// const TEMP_PROF_BASE = "https://rateprof-backend.herokuapp.com";
+const TEMP_PROF_BASE = "https://rateprof-backend.herokuapp.com/tempProfs";
 
 export const findAllProfs = async () => {
     const response = await axios.get(`${TEMP_PROF_BASE}`);

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const PROFS_URL = 'http://localhost:4000/profs'
-const SAVES_URL = 'http://localhost:4000/saves'
-const USERS_URL = 'http://localhost:4000/users'
+const PROFS_URL = 'https://rateprof-backend.herokuapp.com/profs'
+const SAVES_URL = 'https://rateprof-backend.herokuapp.com/saves'
+const USERS_URL = 'https://rateprof-backend.herokuapp.com/users'
 
 export const userSavesProf = async (save) => {
     const response = await axios.post(`${SAVES_URL}`, save)
