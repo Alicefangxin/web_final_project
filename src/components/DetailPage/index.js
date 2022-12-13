@@ -78,7 +78,7 @@ const DetailComponent = () => {
                             </div>
                         }
                     </div>
-                    <div className="col">
+                    <div className="col d-none d-md-block">
                         <table className="table table-warning table-striped mt-5">
                             <thead>
                             <tr>
@@ -184,7 +184,7 @@ const DetailComponent = () => {
                     reviews.map((review) =>
                         <li key={review._id} className="list-group-item bg-light mt-3 border-0 wd-review">
                             <div className="row m-3">
-                                <div className="col-2 flex-column">
+                                <div className="col-2 flex-column d-none d-lg-block">
                                     <div className="wd-quality-font ms-2">QUALITY</div>
                                     <div className="p-4 wd-bg-quality rounded"><h3>{review.QUALITY}</h3></div>
                                     <div className="wd-difficulty-font">DIFFICULTY</div>
