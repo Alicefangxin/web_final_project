@@ -72,9 +72,11 @@ const DetailComponent = () => {
                                 <div>Level of Difficulty</div>
                             </div>
                         </div>
-                        <div className="p-2 bd-highlight border-1 border-end border-dark">
-                            <Link to="/login" className="text-dark">I'm Professor {details.name}</Link>
-                        </div>
+                        { !currentUser &&
+                            <div className="p-2 bd-highlight border-1 border-end border-dark">
+                                <Link to="/login" className="text-dark">I'm Professor {details.name}</Link>
+                            </div>
+                        }
                     </div>
                     <div className="col">
                         <table className="table table-warning table-striped mt-5">
